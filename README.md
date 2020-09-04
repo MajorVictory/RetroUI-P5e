@@ -6,12 +6,7 @@
 
 <br />
 <p align="center">
-  <a href="https://github.com/MajorVictory/RetroUI-P5e">
-    <img src="readme/P5e-Logo-512x512.png" alt="Logo" width="128" height="128">
-  </a>
-
   <h3 align="center">Retro UI (P5e) - UI overhaul module for FoundryVtt</h3>
-
   <p align="center">
     A module for FoundryVtt that overhauls the UI with a customizable style themed after early handheld console games.
     <br />
