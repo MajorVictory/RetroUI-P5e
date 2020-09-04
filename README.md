@@ -35,7 +35,7 @@
  * *Not Compatible* with other sheet addons like Tidy5eSheet, support coming soon™.
  * *Unknown Compatibility* with other game systems
 
-### Latest Release: V1.0.0
+### Latest Release: V1.1.0
 
 You can download the module in it's current state by pasting the following manifest url into Foundry.
 
@@ -62,6 +62,8 @@ You can download the module in it's current state by pasting the following manif
 ### All Vanilla Menus and Dialogs 
 
 ![](readme/Overview-9-4-2020.png)
+
+![](readme/Chat-9-4-2020.png)
 
 ## License
 
