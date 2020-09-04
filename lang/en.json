@@ -1,0 +1,31 @@
+{
+    "P5ESTYLES.Config": "UI Style Options",
+    "P5ESTYLES.ConfigTitle": "UI Style Options",
+    "P5ESTYLES.ConfigHint": "Customize theme colors and settings.",
+    "P5ESTYLES.Dialog": "",
+
+    "P5ESTYLES.InvalidColorFormat": "Invalid Color Format! Must be in hexadecimal format '#rrggbb'",
+
+    "P5ESTYLES.ControldexColor": "Controldex Color",
+    "P5ESTYLES.SheetBackgroundColor": "Sheet Background Color",
+    "P5ESTYLES.SheetForeroundColor": "Sheet Foreground Color",
+
+    "P5ESTYLES.ChatBoxPublic": "Chat Box Style - Public",
+    "P5ESTYLES.ChatBoxPublicHint": "Select background color and border style for public messages.",
+    "P5ESTYLES.ChatBoxWhisper": "Chat Box Style - Whisper",
+    "P5ESTYLES.ChatBoxWhisperHint": "Select background color and border style for whisper and GM messages.",
+    "P5ESTYLES.ChatBoxBlind": "Chat Box Style - Blind",
+    "P5ESTYLES.ChatBoxBlindHint": "Select background color and border style for blind roll messages.",
+    
+    "P5ESTYLES.ColorOptionCustom": "Custom Color",
+
+    "P5ESTYLES.ChatBordersReference": "Chat Border Style Reference",
+    "P5ESTYLES.ChatBorderPublic": "Chat Border - Public",
+    "P5ESTYLES.ChatBorderWhisper": "Chat Border - Whisper",
+    "P5ESTYLES.ChatBorderBlind": "Chat Border - Blind",
+
+
+    "P5ESTYLES.Reset": "Reset",
+    "P5ESTYLES.Save": "Save",
+    "P5ESTYLES.SaveMessage": "Style Settings Applied"
+}

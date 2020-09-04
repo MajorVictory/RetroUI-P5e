@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'five_fonts_at_freddysregular';
+    src: url('FiveFontsatFreddys/fivefontsatfreddys-regular-webfont.eot');
+    src: url('FiveFontsatFreddys/fivefontsatfreddys-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('FiveFontsatFreddys/fivefontsatfreddys-regular-webfont.woff2') format('woff2'),
+         url('FiveFontsatFreddys/fivefontsatfreddys-regular-webfont.woff') format('woff'),
+         url('FiveFontsatFreddys/fivefontsatfreddys-regular-webfont.ttf') format('truetype'),
+         url('FiveFontsatFreddys/fivefontsatfreddys-regular-webfont.svg#five_fonts_at_freddysregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'forced_squaremedium';
+    src: url('ForcedSquare/forced_square-webfont.eot');
+    src: url('ForcedSquare/forced_square-webfont.eot?#iefix') format('embedded-opentype'),
+         url('ForcedSquare/forced_square-webfont.woff2') format('woff2'),
+         url('ForcedSquare/forced_square-webfont.woff') format('woff'),
+         url('ForcedSquare/forced_square-webfont.ttf') format('truetype'),
+         url('ForcedSquare/forced_square-webfont.svg#forced_squaremedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'wobbly_solidnormal';
+    src: url('wobbly_solid/wobbly_solid-webfont.eot');
+    src: url('wobbly_solid/wobbly_solid-webfont.eot?#iefix') format('embedded-opentype'),
+         url('wobbly_solid/wobbly_solid-webfont.woff2') format('woff2'),
+         url('wobbly_solid/wobbly_solid-webfont.woff') format('woff'),
+         url('wobbly_solid/wobbly_solid-webfont.ttf') format('truetype'),
+         url('wobbly_solid/wobbly_solid-webfont.svg#wobbly_solidnormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LE Model D CGA-2y';
+    src: url('LE-Model-D-CGA-2y/Web_LE_Model_D_CGA-2y.woff') format('woff'),
+         url('LE-Model-D-CGA-2y/Px437_LE_Model_D_CGA-2y.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'handheldsquare_regular';
+    src: url('HandheldSquare/handheldsquare-webfont.eot');
+    src: url('HandheldSquare/handheldsquare-webfont.eot?#iefix') format('embedded-opentype'),
+         url('HandheldSquare/handheldsquare-webfont.woff2') format('woff2'),
+         url('HandheldSquare/handheldsquare-webfont.woff') format('woff'),
+         url('HandheldSquare/handheldsquare-webfont.ttf') format('truetype'),
+         url('HandheldSquare/handheldsquare-webfont.svg#handheldsquare_regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'squarefontregular';
+    src: url('Square/square-webfont.eot');
+    src: url('Square/square-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Square/square-webfont.woff2') format('woff2'),
+         url('Square/square-webfont.woff') format('woff'),
+         url('Square/square-webfont.ttf') format('truetype'),
+         url('Square/square-webfont.svg#squarefontregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Wyse700b-2y';
+    src: url('Wyse700b-2y/Web_Wyse700b-2y.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'euxoiregular';
+    src: url('euxoi/euxoi_memesbruh03_01102018-webfont.eot');
+    src: url('euxoi/euxoi_memesbruh03_01102018-webfont.eot?#iefix') format('embedded-opentype'),
+         url('euxoi/euxoi_memesbruh03_01102018-webfont.woff2') format('woff2'),
+         url('euxoi/euxoi_memesbruh03_01102018-webfont.woff') format('woff'),
+         url('euxoi/euxoi_memesbruh03_01102018-webfont.ttf') format('truetype'),
+         url('euxoi/euxoi_memesbruh03_01102018-webfont.svg#euxoiregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

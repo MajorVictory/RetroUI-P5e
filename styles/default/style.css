@@ -1,0 +1,1930 @@
+:root {
+	--border-hotbar-01: url('../../images/border-hotbar-01.png') 12 round;
+	--border-hotbar-02: url('../../images/border-hotbar-02.png') 12 round;
+	--border-hotbar-03: url('../../images/border-hotbar-03.png') 12 round;
+	--border-hotbar-04: url('../../images/border-hotbar-04.png') 12 round;
+	--border-hotbar-05: url('../../images/border-hotbar-05.png') 12 round;
+
+	--p5e-bg-controldex-color: #FF0000FF;
+	--p5e-bg-color: #FFFBCE;
+	--p5e-fg-color: #58d0d0;
+
+	--p5e-chatborder-public: url('../../images/chatborders/21.png') 16 round;
+	--p5e-chatbg-color-public: #f8f8f8;
+	--p5e-chatborder-whisper: url('../../images/chatborders/01.png') 16 round;
+	--p5e-chatbg-color-whisper: #b088d0;
+	--p5e-chatborder-blind: url('../../images/chatborders/16.png') 16 round;
+	--p5e-chatbg-color-blind: #b088d0;
+}
+
+/* ******************************************* */
+/* ***************************** Pause overlay */
+/* ******************************************* */
+
+#pause {
+    background: none;
+}
+
+#pause img {
+    top: -80px;
+    -webkit-animation: pauseballs 2s infinite alternate linear;
+    animation-direction: alternate;
+    animation-duration: 2s;
+    animation-name: pauseballs;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    opacity: 1;
+}
+
+#pause h3 {
+    font-family: wobbly_solidnormal;
+    font-size: 35px;
+    font-weight: 100;
+    letter-spacing: 0.5em;
+    color: #FFCB05;
+    text-shadow: 0px 4px 3px #15418B, 4px 4px 3px #15418B, 4px 0px 3px #15418B;
+}
+
+@keyframes pauseballs {
+  from {
+    -webkit-transform: rotate(15deg); 
+  }
+  to {
+    -webkit-transform: rotate(-15deg); 
+  }
+}
+
+/* ******************************************* */
+/* ***************** left side button controls */
+/* ******************************************* */
+
+#controls {
+    top: 60px !important;
+    min-width: 75px;
+    image-rendering: pixelated;
+    background-image: 
+    	url('../../images/controls-main-bg-top.png'),
+    	url('../../images/controls-main-bg-bottom.png'),
+    	url('../../images/controls-main-bg.png');
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: top center, bottom center, center center;
+    border-radius: 0px;
+    padding: 40px 18px 35px 12px;
+    background-size: contain, contain, 100% calc(100% - 70px);
+    background-color: var(--p5e-bg-controldex-color);
+}
+
+#controls .control-tools {
+    left: 70px !important;
+    top: 20px !important;
+    min-width: 68px;
+    max-width: 68px;
+    margin: 0px;
+    image-rendering: pixelated;
+    background-image: 
+    	url('../../images/controls-sub-bg-top.png'),
+    	url('../../images/controls-sub-bg-bottom.png'),
+    	url('../../images/controls-sub-bg.png');
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: top center, bottom center, center 22px;
+    border-radius: 0px;
+    padding: 24px 0px 17px 14px;
+    background-size: contain, contain, 100% calc(100% - 39px);
+    background-color: var(--p5e-bg-controldex-color);
+    -webkit-mask-image: 
+    	url(../../images/controls-sub-bg-top-mask.png),
+    	url(../../images/controls-sub-bg-bottom-mask.png),
+    	url(../../images/controls-sub-bg-mask.png);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: top center, bottom center, center 22px;
+    -webkit-mask-size: contain, contain, 100% calc(100% - 39px);
+}
+
+#controls .scene-control,
+#controls .control-tool,
+#controls .control-tool.toggle {
+    width: 40px !important;
+    height: 44px !important;
+    box-sizing: content-box;
+    line-height: 44px !important;
+    box-shadow: none !important;
+    margin: 0 0 4px;
+    cursor: pointer;
+    color: white !important;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+    background: none;
+    background-image: url('../../images/controls-main-button-bg.png');
+    background-size: contain;
+    border-radius: 0px;
+    border: none;
+}
+
+#controls .scene-control i,
+#controls .control-tool i {
+	text-align: center;
+    width: 1.5em;
+    font-size: 0.8em;
+}
+
+#controls .scene-control i::before,
+#controls .control-tool i::before {
+    position: relative;
+    left: -1px;
+    top: -2px;
+}
+
+
+#controls .scene-control.active,
+#controls .control-tool.active,
+#controls .scene-control:hover,
+#controls .control-tool:hover {
+    background-image: url('../../images/controls-main-button-bg-select.png');
+    color: white !important;
+    border: none;
+}
+
+#controls .control-tool.toggle.active, #controls .control-tool.toggle:hover {
+	background: none;
+    background-image: url('../../images/controls-main-button-bg-toggle.png');
+    color: white !important;
+    border: none;
+}
+
+
+/* ******************************************* */
+/* ******************** top left scene buttons */
+/* ******************************************* */
+
+#navigation .nav-item {
+	margin: 0px 4px 4px 0px;
+    line-height: 10px !important;
+    color: #F8F8F8 !important;
+    font-family: five_fonts_at_freddysregular, monospace;
+    font-size: 1em;
+    letter-spacing: .1em;
+    word-spacing: 0.2em;
+    padding-top: 4px;
+    padding-left: 12px;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black !important;
+}
+
+#navigation .scene-name > i {
+	position: absolute;
+	top: 0px;
+	left: -4px;
+
+}
+
+#navigation #nav-toggle,
+#navigation #scene-list .scene.nav-item {
+    padding: 6px;
+	border-image: url('../../images/border-scene-button.png') 6 fill stretch !important;
+    border-width: 6px !important;
+    border-style: solid !important;
+	background: rgb(128,192,216);
+	background: 
+		url('../../images/scene-button-bg-normal.png'),
+		linear-gradient(0deg, #80C0D8 40%, #3890D8 40%);
+	background-position: left 70%, center center !important;
+    background-repeat: repeat-x !important;
+    background-clip: padding-box !important;
+    box-shadow: none !important;
+    line-height: 10px !important;
+    color: #F8F8F8 !important;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+}
+
+#navigation #nav-toggle {
+	line-height: 0px !important;
+}
+
+#navigation #nav-toggle:hover,
+#navigation #scene-list .scene.nav-item.active,
+#navigation #scene-list .scene.nav-item:hover {
+	border-image: url('../../images/border-scene-button-select.png') 6 fill stretch !important;
+	background: 
+		url('../../images/scene-button-bg-select.png'),
+		linear-gradient(0deg, #A8E8F8 40%, #78D0E8 40%);
+}
+
+#navigation #scene-list .scene.nav-item.gm {
+	border-image: url('../../images/border-scene-gmbutton.png') 6 fill stretch !important;
+	background: 
+		url('../../images/scene-gmbutton-bg-normal.png'),
+		linear-gradient(0deg, #9780D8 40%, #7D38D8 40%);
+
+}
+
+#navigation #scene-list .scene.nav-item.gm.active, #navigation #scene-list .scene.nav-item.gm:hover {
+	border-image: url('../../images/border-scene-gmbutton-select.png') 6 fill stretch !important;
+	background: 
+		url('../../images/scene-gmbutton-bg-select.png'),
+		linear-gradient(0deg, #B7A8F8 40%, #8E78E8 40%);s
+}
+
+#navigation #scene-list .scene.nav-item.active {
+    padding-left: 24px;
+}
+
+#navigation #scene-list .scene.nav-item a:hover {
+	color: inherit !important;
+	text-shadow: inherit !important;
+}
+
+#navigation .scene-name > i {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+	background: url('../../images/scene-active.png');
+	background-size: 20px 20px;
+	color: rgba(0,0,0,0);
+    text-shadow: none !important;
+}
+
+
+#navigation #scene-list .scene ul.scene-players {
+	top: 17px !important;
+    z-index: 1;
+}
+
+#navigation #scene-list .scene li.scene-player {
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	border-radius: 4px;
+    border: 2px solid #484860;
+    text-shadow: none;
+    z-index: 2;
+}
+
+/* ******************************************* */
+/* ************************ Right side library */
+/* ******************************************* */
+
+#sidebar {
+	border-image: url('../../images/border-interior.png') 10 round;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 15px;
+    width: 310px;
+}
+
+#sidebar.collapsed {
+	min-width: 47px;
+	min-height: 373px;
+}
+
+#sidebar-tabs {
+    flex: 0 0 30px;
+    box-sizing: border-box;
+    margin: 0px !important;
+    box-shadow: none !important;
+    border-image: url('../../images/border-header.png') 6 repeat;
+    border-width: 6px;
+    border-style: solid;
+    background-color: #0079C6;
+}
+
+#sidebar-tabs > .item {
+	flex: 0 0 25px;
+	border: none;
+    border-radius: 0px;
+    background-image: url(../../images/sidebar-tab.png);
+    text-shadow: 2px 0px #004890, 2px 2px 2px #004890, 0px 2px #004890;
+}
+
+#sidebar.collapsed #sidebar-tabs {
+    background-image: url('../../images/dialog-header-collapsed-bg.png');
+    background-repeat: repeat-y;
+    border-image: none;
+    border-width: 0px;
+}
+
+#sidebar-tabs > .item.active {
+    box-shadow: none !important;
+    background-image: url('../../images/sidebar-tab-active.png');
+    border: none !important;
+    text-shadow: 2px 0px #D88848, 2px 2px 2px #D88848, 0px 2px #D88848 !important;
+    color: black;
+}
+
+.sidebar-directory .directory-list .directory-item.folder.collapsed {
+	line-height: 28px !important;
+    max-height: 28px;
+}
+
+.sidebar-directory .directory-list .directory-item.folder {
+	padding: 0px !important;
+	line-height: 28px !important;
+}
+
+.sidebar-directory .directory-list .directory-item.folder.collapsed .folder-header {
+	line-height: 24px !important;
+	border-width: 0px !important;
+	background: url('../../images/folder-entry-bg.png');
+    background-repeat: no-repeat;
+    background-color: rgba(0, 120, 192, 0.25);
+}
+
+
+.sidebar-directory .directory-list .directory-item.folder .folder-header {
+	line-height: 24px !important;
+	border-width: 0px !important;
+	background: url('../../images/folder-entry-selected-bg.png');
+    background-repeat: no-repeat !important;
+    background-color: rgba(0, 120, 192, 0.25);
+    min-height: 29px;
+    max-height: 29px;
+}
+
+.sidebar-directory .directory-list .directory-item.folder .folder-header > h3 {
+    color: #F8F8F8;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+    font-family: forced_squaremedium, monospace;
+    font-size: 23px;
+    letter-spacing: .05em;
+    word-spacing: 0.1em;
+}
+
+
+.app .sidebar-tab footer.directory-footer,
+.app.window-app .window-content footer.sheet-footer {
+	margin: 0px !important;
+	padding: 6px 3px;
+	background-color: var(--p5e-bg-color) !important;
+    color: #4b4a44 !important;
+}
+
+li.folder > .folder-header {
+	padding: 0px !important;
+}
+
+li.folder > .folder-header h3 > i {
+	margin-right: 12px;
+}
+
+.sidebar-tab .directory-list .directory-item.folder {
+    line-height: 48px;
+    background-image: url('../../images/sidebar-bg.png') !important;
+    background-repeat: repeat-x !important;
+}
+
+.sidebar-tab .directory-list .directory-item.entity { 
+	line-height: 28px !important;
+	border: none !important;
+}
+
+.sidebar-tab .directory-list .directory-item.entity:not(.scene) { 
+    background-image: url('../../images/sidebar-bg.png') !important;
+    background-repeat: repeat-x !important;
+	background-color: var(--p5e-fg-color-dark);
+}
+
+.sidebar-tab .directory-list .directory-item .entity-name {
+    color: #F8F8F8;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+    font-family: forced_squaremedium, monospace;
+    font-size: 20px;
+    letter-spacing: .05em;
+    word-spacing: 0.1em;
+}
+
+.sidebar-tab .directory-list .directory-item img {
+	flex: 0 0 28px;
+    height: 28px;
+    width: 28px;
+}
+
+.sidebar-tab .directory-list .directory-item .actor-profile { 
+	flex: 0 0 24px !important;
+	height: 24px !important;
+	width: 24px !important;
+}
+
+.subdirectory {
+	border: none !important;
+	padding-left: 6px !important;
+	background-color: var(--p5e-fg-color-dark);
+    background-image: url('../../images/folder-selected-sidebar-bg.png') !important;
+    background-repeat: repeat-y;
+}
+
+.subdirectory .folder {
+	border: none !important;
+}
+
+/* ******************** */
+/* *************** Chat */
+/* ******************** */
+
+
+#chat-log .message {
+    margin: 2px;
+    padding: 0px;
+    border-image: var(--p5e-chatborder-public);
+    border-width: 16px;
+    border-style: solid;
+    border-radius: 5px;
+    background-image: none !important;
+    background-color: var(--p5e-chatbg-color-public) !important;
+    background-clip: border-box;
+    color: #191813;
+    font-size: 14px;
+}
+
+#chat-log .message.whisper {
+    border-image: var(--p5e-chatborder-whisper);
+    background-color: var(--p5e-chatbg-color-whisper) !important;
+    border-width: 16px !important;
+    border-style: solid !important;
+    border-radius: 5px !important;
+}
+
+#chat-log .message.whisper.blind {
+    border-image: var(--p5e-chatborder-blind);
+    background-color: var(--p5e-chatbg-color-blind) !important;
+    border-width: 16px !important;
+    border-style: solid !important;
+    border-radius: 5px !important;
+}
+
+#chat-log .message .message-header {
+	background-color: #FFFBCE !important;
+    border-image: url('../../images/border-interior-small.png') 5 round !important;
+    border-image-outset: 3px !important;
+    border-width: 5px !important;
+    border-style: solid !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+#chat-log .message .message-content {
+	margin: 10px 0 !important;
+	padding: 0px;
+    border-image: url('../../images/border-textbox-small.png') 13 11 round !important;
+    border-width: 13px 11px !important;
+    border-style: solid !important;
+    background-clip: content-box;
+    background-color: #F8F8F8;
+}
+
+#chat-controls {
+    margin: 0px !important;
+    padding: 6px 6px;
+    background-image: url('../../images/dialog-header-bg.png');
+    background-size: contain;
+    background-repeat: repeat-x;
+}
+
+#chat-form {
+	height: 120px;
+    margin: 0px !important;
+    padding: 6px;
+	background-color: #0078C0;
+    background-image: url('../../images/window-stripes-bg.png');
+}
+
+#chat-form textarea {
+	background-color: #FFFBCE !important;
+    background-clip: padding-box;
+    border-image: url('../../images/border-interior.png') 10 round !important;
+    border-width: 10px !important;
+    border-style: solid !important;
+    background-image: url('../../images/chatbox-bg.png') !important;
+    line-height: 14px !important;
+    background-position: 2px 0px !important;
+    padding: 0px 4px !important;
+    background-attachment: local;
+}
+
+.chat-card .card-footer {
+	margin: 0px;
+	padding: 0px !important;
+	border-image: url('../../images/border-controlgroup-small.png') 4 round;
+    border-width: 4px !important;
+    border-style: solid !important;
+    border-radius: 10px !important;
+    border-color: rgba(255,255,255,0) !important;
+    background-color: #F7CB73;
+}
+
+.chat-card .card-buttons button {
+	padding: 0px;
+    border-image: url('../../images/border-button-small.png') 3 stretch !important;
+    border-width: 3px !important;
+    border-style: solid !important;
+    background: rgb(128,192,216);
+    background: url('../../images/scene-button-bg-normal.png'), linear-gradient(0deg, #80C0D8 40%, #3890D8 40%);
+    background-position: left 70%, center center !important;
+    background-repeat: repeat-x !important;
+    background-clip: padding-box !important;
+    box-shadow: none !important;
+    line-height: 14px !important;
+    color: #F8F8F8 !important;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+    border-image-outset: 3px;
+}
+
+.chat-card .card-buttons button:hover {
+	padding: 0px;
+    border-image: url('../../images/border-button-small-select.png') 3 stretch !important;
+    border-width: 3px !important;
+    border-style: solid !important;
+    background: rgb(128,192,216);
+    background: url('../../images/scene-button-bg-normal.png'), linear-gradient(0deg, #80C0D8 40%, #3890D8 40%);
+    background-position: left 70%, center center !important;
+    background-repeat: repeat-x !important;
+    background-clip: padding-box !important;
+    box-shadow: none !important;
+    line-height: 14px !important;
+    color: #F8F8F8 !important;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+    border-image-outset: 3px;
+}
+
+.chat-card .card-footer span {
+	border-right: 1px solid #6B696B;
+}
+
+.chat-card .card-header img {
+	background: var(--p5e-bg-color) !important;
+    border-top: 2px outset rgba(0,0,0,0.25) !important;
+    border-left: 2px outset rgba(0,0,0,0.25) !important;
+    border-right: 2px outset rgba(0,0,0,0.75) !important;
+    border-bottom: 2px outset rgba(0,0,0,0.75) !important;
+    border-radius: 2px;
+}	
+
+.dice-tray {
+    background-color: #0078C0;
+    background-image: url('../../images/window-stripes-bg.png');
+}
+
+.dice-tray button, .dice-tray input[type="text"] {
+	background: rgb(56,144,216);
+	background: linear-gradient(0deg, rgba(56,144,216,1) 30%, rgba(128,192,216,1) 60%); 
+	background-origin: border-box;
+    border-image: url('../../images/border-control-button-small.png') 6 round !important;
+    border-width: 6px !important;
+    border-style: solid !important;
+    background-clip: border-box !important;
+    border-radius: 12px !important;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+}
+
+.dice-tray .dice-tray__stacked, .dice-tray input[type="text"] {
+	height: 45px !important;
+}
+
+/* ******************** */
+/* ***** Combat Tracker */
+/* ******************** */
+
+#combat #combat-round {
+    background-color: var(--p5e-bg-color) !important;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25) !important;
+    color: #4b4a44 !important;
+}
+
+#combat #combat-round .encounters h4 {
+    color: #4b4a44 !important;
+}
+
+#combat #combat-round .encounters a,
+#combat #combat-controls a {
+	color: #004890;
+}
+
+#combat #combat-round .encounters a:hover,
+#combat #combat-controls a:hover {
+	color: #710000;
+}
+
+#combat #combat-tracker {
+	padding: 0px !important;
+	background: #e0f0e8;
+	background-image: url('../../images/combat-tracker-bg.png'), linear-gradient(0deg, #408880 50%,#e0f0e8 50%);
+    background-position: left center;
+    background-repeat: repeat-x;
+}
+
+#combat #combat-tracker .combatant.actor {
+	position: relative;
+	background-image: 
+		url('../../images/combat-entry-lcap-a.png'),
+		url('../../images/combat-entry-rcap-a.png'),
+		url('../../images/combat-entry-bg.png');
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: left, right, center;
+    background-size: auto auto, auto auto, calc(100% - 50px) 100%;
+    padding: 0px 55px 0px 7px;
+    background-clip: border-box,border-box,border-box,border-box,border-box;
+    margin-bottom: 5px; 
+    height: 55px;
+}
+
+#combat #combat-tracker .combatant.actor .token-image {
+	position: relative;
+    top: 8px;
+	flex: 0 0 34px  !important;
+    height: 34px  !important;
+    width: 34px  !important;
+    background-color: #506858;
+    border-radius: 5px;
+}
+
+#combat li.combatant.turn-done {
+	text-decoration: none !important;
+}
+
+#combat #combat-tracker .combatant.actor.defeated .token-image {
+	opacity: 1 !important;
+	transform: none !important;
+    background-color: #710000;
+}
+
+#combat #combat-tracker .combatant.actor.active {
+	background-image: 
+		url('../../images/combat-entry-lcap-b.png'),
+		url('../../images/combat-entry-rcap-b.png'),
+		url('../../images/combat-entry-bg.png');
+    padding: 0px 40px 0px 23px;
+
+}
+
+#combat #combat-tracker .combatant.actor.active .token-name {
+	line-height: 34px;
+}
+
+#combat #combat-tracker .combatant.actor .token-name h4 {
+	margin: 0px !important;
+	top: 5px;
+    position: relative;
+}
+
+#combat #combat-tracker .combatant.actor .token-name {
+	margin: 0px 0px 0px 5px !important;
+	font-family: five_fonts_at_freddysregular, monospace;
+    font-size: 1.2em !important;
+    line-height: 34px !important;
+}
+
+#combat #combat-tracker .combatant.actor .token-name,
+#combat #combat-tracker .combatant.actor .token-resource,
+#combat #combat-tracker .combatant.actor .token-initiative,
+#combat li.combatant .token-initiative .initiative,
+.token-resource input[name="resource"] { 
+	color: #404040 !important;
+    text-shadow: 2px 0px #D8D0B0, 2px 2px 2px #D8D0B0, 0px 2px #D8D0B0 !important;
+}
+
+#combat #combat-tracker .combatant.actor.active .token-initiative,
+#combat #combat-tracker .combatant.actor.active .token-resource { 
+    position: absolute;
+    right: 8px;
+    border: none;
+}
+#combat #combat-tracker .combatant.actor .token-initiative,
+#combat #combat-tracker .combatant.actor .token-resource { 
+    position: absolute;
+    right: 24px;
+    border: none;
+}
+
+#combat li.combatant .token-resource {
+    bottom: -5px;
+}
+
+#combat li.combatant .token-initiative {
+    top: -10px;
+}
+
+
+#combat #combat-tracker .combatant .token-name .combatant-control {
+	font-family: none !important;
+}
+
+#combat #combat-tracker .combatant .token-name .combatant-control.active {
+	color: #710000 !important;
+}
+
+#combat #combat-tracker .combatant.actor .token-initiative .roll {
+    position: absolute; 
+	top: 10px;
+    right: -8px;
+	width: 36px;
+    height: 48px;
+    background: url('../../images/initiative.png') no-repeat 50% 50%;
+    background-size: 36px;
+}
+
+#combat #combat-tracker .combatant.actor .token-initiative .roll:hover { 
+	width: 36px;
+    height: 48px;
+    background: url('../../images/initiative-select.png') no-repeat 50% 50%;
+    background-size: 36px;
+}
+
+#combat #combat-controls,
+#combat-popout #combat-controls {
+	margin: 0px !important;
+	padding: 6px 3px;
+    border-top: 2px solid rgba(0, 0, 0, 0.25) !important;
+	background-color: var(--p5e-bg-color) !important;
+    color: #4b4a44 !important;
+}
+
+/* ******************** */
+/* ************* Scenes */
+/* ******************** */
+
+#scenes .entity.scene {
+	height: 32px;
+	padding-top:2px;
+}
+
+#scenes .entity.scene .entity-name {
+	line-height: 24px;
+	font-size:125%;
+}
+
+#scenes .entity.scene .entity-name > a {
+	
+}
+
+/* ******************** */
+/* ************* Actors */
+/* ******************** */
+
+.sidebar-tab .directory-header, section.token-mold {
+    background-color: var(--p5e-bg-color) !important;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25) !important;
+    color: #4b4a44 !important;
+}
+
+section.token-mold input[type=checkbox]:checked ~ span {
+    color: #004890 !important;
+}
+
+section.token-mold span:not(.checkmark) {
+    color: #710000 !important;
+}
+
+/* ******************** */
+/* ************** Items */
+/* ******************** */
+
+
+/* ******************** */
+/* *********** Journals */
+/* ******************** */
+
+
+/* ******************** */
+/* ********* Rolltables */
+/* ******************** */
+
+
+/* ******************** */
+/* ************** Music */
+/* ******************** */
+
+
+/* ******************** */
+/* ******** Compendiums */
+/* ******************** */
+
+footer.compendium-footer > span.entity-type {
+	display: none;
+}
+
+footer.compendium-footer > span:nth-child(2) {
+	position: absolute;
+	top: 16px;
+	right: 0;
+	font-size: 80%;
+}
+
+#compendium li.compendium-pack {
+	padding:2px 0px 5px 0px;
+}
+
+#compendium li.compendium-pack .status-icons {
+	top:0px;
+	color:red;
+}
+
+/* ******************** */
+/* *********** Settings */
+/* ******************** */
+
+
+
+/* ******************************************* */
+/* ****************************** Players List */
+/* ******************************************* */
+
+#players {
+    background-color: #B7E0BF;
+	border-image: url('../../images/border-hotbar.png') 12 round;
+    border-image-outset: 0px;
+    border-radius: 10px;
+    border-width: 12px;
+    border-style: solid;
+    box-shadow: none !important;
+}
+
+#players h3 {
+	height: 30px;
+    box-sizing: border-box;
+    margin: 0px !important;
+    border-bottom: 2px solid #577F4F;
+    box-shadow: none !important;
+    background: url(../../images/players-header-bg.png), linear-gradient(0deg, #B7E0BF 40%, #7FA777 40%);
+    background-position: left 70%, center center !important;
+    background-repeat: repeat-x !important;
+    background-clip: padding-box !important;
+    line-height: 22px;
+    font-family: five_fonts_at_freddysregular, monospace;
+    font-size: 1em;
+    letter-spacing: .1em;
+    word-spacing: 0.2em;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+}
+
+#players h3 i {
+	margin: 0px !important;
+	position: relative;
+	top: -10px;
+}
+
+#players #player-list {
+    margin: 0px;
+    padding: 0;
+    background-color: #577F4F;
+}
+
+#players #player-list .player {
+	line-height: 18px !important;
+	padding: 1px 4px !important;
+	background-image: url('../../images/playerlist-bg.png') !important;
+    background-repeat: repeat-x !important;
+    background-color: rgba(104, 192, 200, 0.25);
+    border: none !important;
+}
+
+#players #player-list .player .player-name {
+	font-family: five_fonts_at_freddysregular;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+    letter-spacing: .1em;
+    word-spacing: 0.4em;
+    font-size: 12px;
+}
+
+
+
+/* ******************************************* */
+/* ************************************ Hotbar */
+/* ******************************************* */
+
+#hotbar {
+	height: 52px;
+    bottom: 37px;
+    width: 650px;
+}
+
+#hotbar .bar-controls,
+#hotbar #action-bar #hotbar-page-controls {
+    box-sizing: content-box;
+	background-color: #B7E0BF;
+	border-image: url('../../images/border-hotbar.png') 12 round;
+    border-image-outset: 0px;
+    border-radius: 10px;
+    border-width: 12px;
+    border-style: solid;
+    box-shadow: none;
+    color: #F8F8F8 !important;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+}
+
+/* grass */
+#hotbar #action-bar #macro-list {
+    box-sizing: content-box;
+	background-image: url('../../images/hotbar-bg-01.png');
+	border-image: var(--border-hotbar-01);
+    border-image-outset: 0px;
+    border-radius: 10px;
+    border-width: 12px;
+    border-style: solid;
+    box-shadow: none;
+    color: #F8F8F8 !important;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+}
+
+#hotbar #action-bar #macro-list .macro {
+	background-color: rgba(123, 206, 82, 0.5);
+	border-width: 2px;
+	border-style: solid;
+    border-color: #426B39;
+	box-shadow: none;
+}
+
+#hotbar #action-bar #macro-list .macro .macro-key {
+	padding: 2px;
+	border-width: 2px;
+	border-style: solid;
+    border-color: #426B39;
+    border-radius: 0px;
+    box-shadow: none;
+	background-color: rgb(123, 206, 82);
+    font-family: handheldsquare_regular;
+    font-size: 1em;
+    font-weight: normal !important;
+}
+
+/* ground */
+#hotbar #action-bar #macro-list[data-page="2"] {
+	background-image: url('../../images/hotbar-bg-02.png');
+	border-image: url('../../images/border-hotbar-02.png') 12 round;
+}
+
+#hotbar #action-bar #macro-list[data-page="2"] .macro {
+	background-color: rgba(214, 181, 90, 0.5);
+	border-color: #735218;
+}
+
+#hotbar #action-bar #macro-list[data-page="2"] .macro .macro-key {
+	background-color: #BDA55A;
+	border-color: #735218;
+}
+
+/* fight */
+#hotbar #action-bar #macro-list[data-page="3"] {
+	background-image: url('../../images/hotbar-bg-03.png');
+	border-image: url('../../images/border-hotbar-03.png') 12 round;
+}
+
+#hotbar #action-bar #macro-list[data-page="3"] .macro {
+	background-color: rgba(165, 82, 57, 0.5);
+	border-color: #4A3931;
+}
+
+#hotbar #action-bar #macro-list[data-page="3"] .macro .macro-key {
+	background-color: #A55239;
+	border-color: #4A3931;
+}
+
+/* fire */
+#hotbar #action-bar #macro-list[data-page="4"] {
+	background-image: url('../../images/hotbar-bg-04.png');
+	border-image: url('../../images/border-hotbar-04.png') 12 round;
+}
+
+#hotbar #action-bar #macro-list[data-page="4"] .macro {
+	background-color: rgba(247, 82, 49, 0.5);
+	border-color: #732108;
+}
+
+#hotbar #action-bar #macro-list[data-page="4"] .macro .macro-key {
+	background-color: #F75231;
+	border-color: #732108;
+}
+
+/* ice */
+#hotbar #action-bar #macro-list[data-page="5"] {
+	background-image: url('../../images/hotbar-bg-05.png');
+	border-image: url('../../images/border-hotbar-05.png') 12 round;
+}
+
+#hotbar #action-bar #macro-list[data-page="5"] .macro {
+	background-color: rgba(90, 206, 231, 0.5);
+	border-color: #425294;
+}
+
+#hotbar #action-bar #macro-list[data-page="5"] .macro .macro-key {
+	background-color: #5ACEE7;
+	border-color: #425294;
+}
+
+
+
+
+/* ******************************************* */
+/* ************************** Vanilla Specific */
+/* ******************************************* */
+
+.window-app .window-content {
+    background-color: var(--p5e-bg-color) !important;
+    background-image: url('../../images/window-bg.png') !important;
+}
+
+.vtt.game,
+.window-app.sidebar-popout .window-content,
+#sidebar .sidebar-tab .directory-list:not(#combat-tracker),
+#settings,
+#chat-log {
+    background-color: #005173 !important;
+    background-image: url('../../images/window-bg.png') !important;
+}
+
+
+/* generic color gradiant+stripes bg - blue
+.window-app.macro-sheet .window-content {
+	background: rgb(0,120,192);
+    background-image: url('../../images/window-stripes-bg.png'),
+    linear-gradient(0deg, rgba(0,120,192,1) 5%, rgba(107,203,198,1) 50%, rgba(0,120,192,1) 95%) !important;
+}
+ */
+
+.window-app, .app.sidebar-popout {
+	border-image: url('../../images/border-interior.png') 10 round;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 15px;
+}
+
+.window-app.minimized {
+    min-width: 325px !important;
+    min-height: 45px !important;
+}
+
+.window-app.minimized .window-header {
+    flex: 0 0 26px !important;
+}
+
+.window-app.minimized .window-header .window-title {
+    line-height: 26px !important;
+}
+
+.window-app .window-header {
+    border-image: url('../../images/border-header.png') 6 repeat;
+    border-width: 6px;
+    border-style: solid;
+    background-color: #0079C6;
+    flex: 0 0 41px;
+    padding: 0px 4px;
+}
+
+.window-app .window-resizable-handle {
+    bottom: -10px;
+    right: -10px;
+	background: none;
+	background-image: url(../../images/border-controlgroup.png);
+    border: none;
+    color: black;
+    cursor: nwse-resize;
+}
+
+.window-app .window-content .sheet-header {
+	background-color: #FFFBCE !important;
+    border-image: url('../../images/border-interior.png') 10 round !important;
+    border-width: 10px !important;
+    border-style: solid !important;
+    border-radius: 15px !important;
+    margin: 0px 0px 5px 0px !important;
+    padding: 0px !important;
+}
+
+.window-app .window-header a > i {
+	font-size: 150%;
+	margin-top: 5px;
+}
+
+.window-app.minimized .window-header a > i {
+    font-size: 150%;
+    margin-top: 0px;
+}
+
+.window-app .window-header a {
+	width:32px;
+	text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+}
+.window-app .window-header a.close:hover {
+	color: #ff6666;
+}
+
+.window-app .window-header .window-title {
+    font-family: squarefontregular;
+    font-size: 1.3em !important;
+    line-height: 30px !important;
+    color: #F8F8F8 !important;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+}
+
+#settings button,
+.dialog-button,
+button[type="submit"],
+.app .sidebar-tab footer button,
+.app.window-app .window-content footer button {
+    border-image: url('../../images/border-control-button.png') 12 round !important;
+    border-width: 12px !important;
+    border-style: solid !important;
+    background-clip: border-box !important;
+    box-sizing: border-box;
+    background: rgb(128,192,216);
+    background: url(../../images/scene-button-bg-normal.png), linear-gradient(0deg, #80C0D8 40%, #3890D8 40%) !important;
+    background-position: left 70%, center center !important;
+    background-repeat: repeat-x !important;
+    background-clip: border-box !important;
+    background-size: auto, 100% 137% !important;
+    color: white !important;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black !important;
+    padding: 0px !important;
+    line-height: 22px !important;
+}
+
+#settings button:hover,
+.dialog-button:hover,
+button[type="submit"]:hover,
+.app .sidebar-tab footer button:hover,
+.app.window-app .window-content footer button:hover,
+.filepicker .display-modes a:hover,
+.filepicker .display-modes a.active {
+    border-image: url('../../images/border-control-button-select.png') 12 round !important;
+    background: url('../../images/scene-button-bg-select.png'), linear-gradient(0deg, #A8E8F8 40%, #78D0E8 40%);
+    background-clip: border-box;
+    background-size: auto, 100% 137%;
+    box-shadow: none !important;
+}
+
+.form-group button,
+.filepicker .current-dir button,
+.chat-card .card-buttons button,
+.filepicker .display-modes a {
+	padding: 4px;
+    border-image: url(../../images/border-button-small.png) 3 stretch !important;
+    border-width: 3px !important;
+    border-style: solid !important;
+    background: rgb(128,192,216);
+    background: url(../../images/scene-button-bg-normal.png), linear-gradient(0deg, #80C0D8 40%, #3890D8 40%);
+    background-position: left 70%, center center !important;
+    background-repeat: repeat-x !important;
+    background-clip: padding-box !important;
+    box-shadow: none !important;
+    line-height: 14px !important;
+    color: #F8F8F8 !important;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+    border-image-outset: 3px;
+}
+
+.form-group button:hover,
+.chat-card .card-buttons button:hover {
+	border-image: url(../../images/border-button-small-select.png) 3 stretch !important;
+	background: url('../../images/scene-button-bg-select.png'), linear-gradient(0deg, #A8E8F8 40%, #78D0E8 40%)
+}
+
+#client-settings section.content {
+    border-top: 0px;
+}
+
+#client-settings section.content .submenu > button {
+    font-size: 14px;
+}
+
+
+.form-group label {
+	font-weight: bold;
+	font-family: 'Wyse700b-2y';
+    font-size: 15px;
+}
+
+.form-group button label {
+	line-height: 14px;
+}
+
+form .form-group {
+	border-image: url('../../images/border-controlgroup.png') 7 round;
+    border-width: 7px !important;
+    border-style: solid !important;
+    border-radius: 15px !important;
+    border-color: rgba(255,255,255,0) !important;
+    background-color: #F7CB73 !important;
+}
+
+hr {
+    border: none;
+    border-bottom: 2px dashed rgba(0,0,0,0.5);
+}
+
+#permissions-config li.permission {
+	border-bottom: 7px solid black;
+}
+
+.list-filters input[type="text"] {
+	height: 30px;
+	border: 2px solid #687078;
+    box-shadow: inset 4px 0px 3px 1px #C8C8D8, inset -4px 0px 3px 1px #C8C8D8;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.list-filters button, #module-management .expand {
+    position: relative;
+    top: 4px;
+    height: 35px;
+	padding: 6px;
+    border-image: url(../../images/border-button-small.png) 3 stretch !important;
+    border-width: 3px !important;
+    border-style: solid !important;
+    background: rgb(128,192,216);
+    background: url(../../images/scene-button-bg-normal.png), linear-gradient(0deg, #80C0D8 40%, #3890D8 40%);
+    background-position: left 70%, center center !important;
+    background-repeat: repeat-x !important;
+    background-clip: padding-box !important;
+    box-shadow: none !important;
+    line-height: 7px !important;
+    color: #F8F8F8 !important;
+    text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
+}
+
+.list-filters button:hover, #module-management .expand:hover {
+    border-image: url('../../images/border-button-small-select.png') 3 stretch !important;
+    background: url('../../images/scene-button-bg-select.png'),
+		linear-gradient(0deg, #A8E8F8 40%, #78D0E8 40%);
+
+}
+
+.app.window-app.filepicker {
+    min-width: 548px;
+}
+
+a:hover,
+.dnd5e.chat-card .card-header h3:hover,
+.filepicker .directory > li:hover {
+	color: white;
+    text-shadow: 2px 0px #710000, 2px 2px 2px #710000, 0px 2px #710000;
+}
+
+.filepicker .window-content .filepicker-body .filepicker-body {
+    border-radius: 0px;
+    background-color: var(--p5e-fg-color-half);
+    border: 2px outset var(--p5e-fg-color-dark);
+}
+
+.filepicker .directory.folders-list {
+    max-height: 250px;
+}
+
+.filepicker .directory.files-list {
+    max-height: 300px;
+}
+
+#controls-reference ol.hotkey-list li.gm .key {
+	background: #9780D8;
+}
+
+#controls-reference h2 {
+	border-top: 2px solid rgba(0,0,0,0.25);
+    border-bottom: 4px solid rgba(0,0,0,0.5);
+	border-left: 2px solid rgba(0,0,0,0.25);
+    border-right: 4px solid rgba(0,0,0,0.5);
+}
+
+#controls-reference h3 {
+	border-top: 2px solid rgba(0,0,0,0.25);
+    border-bottom: 4px solid rgba(0,0,0,0.5);
+}
+
+#module-management .package-list {
+	border-top: none;
+}
+
+.package-list .package {
+    margin-bottom: 3px;
+    background-color: #FFFBCE !important;
+    border-image: url('../../images/border-interior-small.png') 5 round !important;
+    border-image-outset: 0px !important;
+    border-width: 5px !important;
+    border-style: solid !important;
+}
+
+.package-list .package .package-description {
+    padding: 0px;
+    border-image: url('../../images/border-textbox-small.png') 13 11 round !important;
+    border-width: 13px 11px !important;
+    border-style: solid !important;
+    background-color: #F8F8F8;
+	background-clip: content-box;
+}
+
+#module-management .package-list .package-metadata li {
+    list-style-type: none;
+}
+
+
+/* ******************************************* */
+/* ********************* dnd5e Specific Styles */
+/* ******************************************* */
+
+.dnd5e.sheet.actor.npc {
+	min-height: 758px;
+}
+.dnd5e.sheet.actor.vehicle {
+	min-width: 625px;
+	min-height: 740px;
+}
+.dnd5e.sheet.actor.character {
+	min-height: 760px;
+}
+
+.dnd5e.sheet .sheet-header img.profile,
+.dnd5e.sheet.item .sheet-header img.profile,
+.macro-sheet.sheet .sheet-header img {
+	background: var(--p5e-fg-color);
+    border: 4px outset var(--p5e-fg-color-dark);
+    border-radius: 4px;
+}
+
+.dnd5e.sheet .sheet-header h1 input,
+.sheet .sheet-header h1 input {
+    font-family: wobbly_solidnormal;
+	font-size: 25px;
+    font-weight: 100;
+    letter-spacing: 0.05em;
+}
+
+.dnd5e.sheet.actor .sheet-header .header-exp {
+    margin-right: 0px;
+}
+
+.dnd5e.sheet.actor.character .sheet-header .xpbar {
+    flex: 0 0 14px;
+    width: 100%;
+    margin-bottom: 5px;
+    background: 
+        url('../../images/bg-exp-left.png'),
+        url('../../images/bg-exp-right.png'),
+        url('../../images/bg-exp-empty.png');
+    border: none;
+    border-radius: 0px;
+    background-repeat: no-repeat,no-repeat, no-repeat;
+    background-position: left center, right center, center center;
+    background-size: contain, contain, calc(100% - 12px) 100% !important;
+    padding: 0px 6px 0px 32px;
+}
+
+.dnd5e.sheet.actor.character .sheet-header .xpbar .bar {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    height: 14px;
+    border: none;
+    border-radius: 0px;
+    background-repeat: repeat-x;
+    background: url('../../images/bg-exp-fill.png');
+}
+
+.dnd5e.sheet.actor.character .sheet-header .charlevel {
+    padding: 2px;
+    color: var(--p5e-fg-color-shadow);
+    font-family: 'euxoiregular';
+    font-size: 16px;
+    font-weight: 100;
+    text-shadow: 2px 0px 2px var(--p5e-fg-color-lighter), 2px 2px 2px var(--p5e-fg-color-lighter), 0px 2px 2px var(--p5e-fg-color-lighter);
+}
+
+.dnd5e.sheet.actor .sheet-header .summary,
+.dnd5e.sheet.item .sheet-header .summary {
+	border: 2px outset var(--p5e-fg-color-dark) !important;
+    background-image: linear-gradient(0deg, var(--p5e-fg-color-lighter) 8px, var(--p5e-fg-color-darker) 8px, var(--p5e-fg-color-lighter) 12px, var(--p5e-fg-color-darker) 12px) !important;
+    font-family: squarefontregular !important;
+    font-weight: 100 !important;
+    font-size: 14px !important;
+}
+
+.dnd5e.sheet .sheet-header .summary li {
+	border-right: 2px solid var(--p5e-fg-color-dark);
+    padding-left: 2px !important;
+}
+
+.dnd5e.sheet.actor .sheet-header .attributes {
+    background-color: var(--p5e-fg-color-half);
+    border-left: 2px outset var(--p5e-fg-color-dark);
+    border-right: 2px outset var(--p5e-fg-color-dark);
+    border-bottom: 2px outset var(--p5e-fg-color-dark);
+}
+
+.ddn5e.sheet.actor .sheet-header .attributes .attribute {
+    border-right: 2px solid var(--p5e-fg-color-dark);
+}
+
+.dnd5e.sheet.actor .sheet-header .attributes .attribute
+
+.dnd5e.sheet.actor .sheet-header .summary input,
+.dnd5e.sheet.actor .sheet-header .summary span {
+	font-family: squarefontregular;
+    font-weight: 100;
+    font-size: 16px;
+}
+
+
+.dnd5e.sheet.actor .inventory-list .inventory-header h3 {
+    border-right: 1px solid var(--p5e-fg-color-shadow);
+    font-family: 'Wyse700b-2y';
+    font-weight: 100;
+    font-size: 16px;
+    color: var(--p5e-fg-color-shadow);
+    text-shadow: 2px 0px 2px var(--p5e-fg-color-lighter), 2px 2px 2px var(--p5e-fg-color-lighter), 0px 2px 2px var(--p5e-fg-color-lighter);
+}
+
+.sheet-navigation,
+.sheet-tabs,
+.list-filters {
+	border-image: url(../../images/border-header.png) 6 repeat !important;
+    border-width: 6px !important;
+    border-style: solid !important;
+    background-color: #0079C6 !important;
+    margin: 0px !important;
+}
+
+.dnd5e.sheet .sheet-navigation .item,
+.sheet-tabs .item,
+.filepicker-header .tabs .item,
+.list-filters .filter,
+.dnd5e.sheet .filter-list .filter-item {
+	min-width: 80px;
+    height: 30px !important;
+    margin: 0px 5px !important;
+    padding: 0px !important;
+    box-sizing: content-box;
+    box-shadow: none !important;
+    border: none !important;
+    background-image: 
+    	url(../../images/tab-item-bg-left.png),
+    	url(../../images/tab-item-bg-right.png),
+    	url(../../images/tab-item-bg.png) !important;
+    background-repeat: no-repeat, no-repeat, no-repeat !important;
+    background-position: center left, center right, center center !important;
+    background-size: contain, contain, calc(100% - 12px) 100% !important;
+    -webkit-mask-image: 
+        url(../../images/tab-item-bg-left-mask.png),
+        url(../../images/tab-item-bg-right-mask.png),
+        url(../../images/tab-item-bg-mask.png) !important;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center left, center right, center center !important;
+    -webkit-mask-size: contain, contain, calc(100% - 12px) 100% !important;
+    text-align: center !important;
+    line-height: 1.6em !important;
+    font-family: 'LE Model D CGA-2y' !important;
+    font-weight: 100 !important;
+    font-size: 18px !important;
+
+    background-color: var(--p5e-fg-color) !important;
+    color: var(--p5e-fg-color-shadow) !important;
+    text-shadow: 2px 0px 2px var(--p5e-fg-color-lighter), 2px 2px 2px var(--p5e-fg-color-lighter), 0px 2px 2px var(--p5e-fg-color-lighter) !important;
+}
+
+.filepicker-header .tabs .item {
+	font-size: 1.3em !important;
+}
+
+.sheet-tabs .item {
+    font-size: 1.1em !important;
+    line-height: 1.7em !important;
+}
+
+.list-filters .filter {
+	font-size: 0.8em;
+	padding: 0px 8px !important;
+	margin: 0px 1px !important;
+}
+
+.dnd5e.sheet .filter-list .filter-item {
+    font-size: 1.1em !important;
+    line-height: 2.2em !important;
+}
+
+nav.list-filters a.filter {
+	font-size: 0.9em !important;
+    line-height: 2.7em !important;
+}
+
+nav.list-filters a.filter.active {
+	font-weight: 100 !important;
+}
+
+.sheet-tabs .item i,
+.filepicker-header .tabs .item i {
+    font-size: initial !important;
+}
+
+.sheet-navigation .item:hover,
+.sheet-tabs .item:hover,
+.filepicker-header .tabs .item:hover,
+.list-filters .filter:hover,
+.dnd5e.sheet .filter-list .filter-item:hover {
+    color: white;
+    text-shadow: 2px 0px 2px #004890, 2px 2px 2px #004890, 0px 2px 2px #004890;
+}
+
+.dnd5e.sheet .sheet-navigation .item.active,
+.sheet-tabs .item.active,
+.filepicker-header .tabs .item.active,
+.list-filters .filter.active,
+.dnd5e.sheet .filter-list .filter-item.active {
+    border: none !important;
+    background-image: 
+	    url(../../images/tab-item-bg-left-active.png),
+	    url(../../images/tab-item-bg-right-active.png),
+	    url(../../images/tab-item-bg-active.png) !important;
+    text-shadow: 2px 0px #D88848, 2px 2px 2px #D88848, 0px 2px #D88848 !important;
+    color: black !important;
+}
+
+.dnd5e.sheet.item .sheet-body {
+    padding-left: .25rem !important;
+}
+
+
+.dnd5e.sheet.item .sheet-body .item-properties {
+	border-right: none !important;
+	background-color: #F7CB73 !important;
+    background-clip: padding-box;
+    border-image: url('../../images/border-left-tab.png') 10 fill round !important;
+    border-width: 10px !important;
+    border-style: solid !important;
+    box-shadow: none !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    flex: 0 0 130px !important;
+    height: fit-content;
+    z-index: 2;
+}
+
+.dnd5e.sheet.item .sheet-body .item-properties .properties-list li {
+    font-family: 'Wyse700b-2y' !important;
+    font-size: 14px !important;
+    font-weight: 100 !important;
+}
+
+.dnd5e.sheet.item .sheet-body .editor {
+	background-color: #FFFBCE !important;
+    background-clip: padding-box;
+    border-image: url('../../images/border-interior.png') 10 fill round !important;
+    border-width: 10px !important;
+    border-style: solid !important;
+    padding-left: 10px !important;
+    box-shadow: none !important;
+    margin: 0px !important;
+    z-index: 1;
+    position: relative;
+    left: -10px;
+}
+
+.dnd5e.sheet.item .sheet-body .tab.details, .dnd5e.sheet.item .sheet-body .tab.dynamiceffects,
+.dnd5e.sheet.item .sheet-body .tab.item-betterRolls, .dnd5e.sheet.item .sheet-body .tab.itemcollection-details {
+	background-color: #FFFBCE !important;
+    background-clip: padding-box;
+    border-image: url('../../images/border-interior.png') 10 fill round !important;
+    border-width: 10px !important;
+    border-style: solid !important;
+}
+
+
+.dnd5e.sheet.actor h4.box-title {
+    border: none !important;
+    line-height: 15px;
+    font-family: squarefontregular;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 4px 3px 0px 3px;
+    text-shadow: 2px 0px 2px var(--p5e-fg-color-lighter), 2px 2px 2px var(--p5e-fg-color-lighter), 0px 2px 2px var(--p5e-fg-color-lighter);
+    color: var(--p5e-fg-color-shadow);
+}
+
+
+.dnd5e.sheet.actor.character ul.attributes li.attribute:nth-child(3) h4 {
+    font-size: 11px;
+}
+
+.dnd5e.sheet.actor .ability-scores {
+    margin-top: 5px;
+	height: 418px;
+    border: none !important;
+}
+
+.dnd5e.sheet.actor ul.skills-list {
+    margin-top: 5px;
+}
+
+.dnd5e.sheet.actor ul.skills-list,
+.dnd5e.sheet.actor .inventory-list {
+    padding: 0px 2px;
+    background-color: #FFFBCE !important;
+    border-image: url('../../images/border-interior-small.png') 5 round !important;
+    border-width: 5px !important;
+    border-style: solid !important;
+    border-radius: 10px !important;
+}
+
+.dnd5e.sheet.actor ul.skills-list {
+    flex: 0 0 205px !important;
+    margin-top: 8px !important;
+    background-color: #FFFBCE !important;
+    border-image: url('../../images/border-interior-small.png') 5 round !important;
+    border-image-outset: 3px !important;
+    border-width: 5px !important;
+    border-style: solid !important;
+    padding: 0px !important;
+}
+
+.dnd5e.sheet.actor ul.skills-list li.skill.proficient {
+    background-color: var(--p5e-fg-color-half);
+}
+
+
+.dnd5e.sheet.actor .ability-scores .ability {
+    position: relative;
+    z-index: 1;
+    width: 100px;
+    height: 70px;
+}
+
+.dnd5e.sheet.actor .ability-scores .ability::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 52px;
+    height: 12px;
+    z-index: -1;
+    border-image: url(../../images/bg-attribute-color.png) 36 24 22 24 fill stretch !important;
+    border-width: 36px 24px 22px 24px !important;
+    border-style: solid !important;
+    background-color: var(--p5e-fg-color-lighter);
+}
+
+.dnd5e.sheet.actor .ability-scores .ability.proficient::after {
+    background-color: var(--p5e-fg-color-darker);
+}
+
+.dnd5e.sheet.actor .ability-scores .ability .ability-modifiers .ability-proficiency {
+    line-height: 23px;
+    padding-left: 2px;
+}
+
+.dnd5e.sheet.actor .proficiency-toggle {
+    line-height: 22px !important;
+    color: var(--p5e-fg-color-shadow) !important;
+}
+
+.dnd5e.sheet.actor .proficiency-toggle:hover {
+    color: #f8f8f8 !important;
+}
+
+.dnd5e.sheet.actor .proficiency-toggle:hover {
+    color: var(--p5e-fg-color-light);
+	text-shadow: 2px 0px 2px var(--p5e-fg-color-shadow), 2px 2px 2px var(--p5e-fg-color-shadow), 0px 2px 2px var(--p5e-fg-color-shadow);
+}
+
+.dnd5e.sheet.actor .ability-scores .ability .ability-modifiers {
+    margin: -5px 0 0;
+    padding: 0px 3px;
+}
+
+.dnd5e.sheet.actor .ability-scores .ability .ability-modifiers span.ability-mod {
+	border-width: 0px !important;
+}
+
+.dnd5e.sheet.actor .ability-scores .ability .ability-modifiers span.ability-save {
+	border-width: 0px !important;
+}
+
+.dnd5e.sheet.actor ul.skills-list li.skill h4 {
+	font-family: 'euxoiregular';
+    font-size: 16px !important;
+    font-weight: 100;
+}
+
+.dnd5e.sheet.actor ul.attributes {
+    margin-bottom: 5px;
+}
+
+.dnd5e.sheet.actor ul.attributes li.attribute {
+    border-radius: 0px;
+    border: 2px outset var(--p5e-fg-color-dark);
+    background-color: var(--p5e-fg-color);
+}
+
+.dnd5e.sheet.actor .sheet-header .attributes .attribute {
+    border-right: 2px solid var(--p5e-fg-color-dark);
+}
+
+.dnd5e.sheet.actor .center-pane {
+    margin-top: 5px;
+}
+
+.dnd5e.sheet.actor .counters {
+    background-color: #FFFBCE !important;
+    border-image: url(../../images/border-interior-small.png) 5 round !important;
+    border-image-outset: 3px !important;
+    border-width: 5px !important;
+    border-style: solid !important;
+    margin: 3px 3px 3px 3px;
+    padding: 0px !important;
+}
+
+.dnd5e.sheet.actor .counters .counter h4 {
+	font-family: 'Wyse700b-2y';
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.dnd5e.sheet.actor .inventory-filters {
+	margin: 5px 0px;
+
+}
+
+.dnd5e.sheet.actor .inventory-filters .currency {
+    height: 30px;
+	margin: 0px 0px 5px 0px;
+    padding: 5px 5px 0px 5px;
+    border: 2px outset var(--p5e-fg-color-dark);
+    background-color: var(--p5e-fg-color);
+}
+
+.dnd5e.sheet.actor .inventory-filters .currency h3 {
+    flex: 0 0 83px;
+    overflow: visible;
+    white-space: nowrap;
+    font-family: 'LE Model D CGA-2y';
+    font-weight: 100;
+    font-size: 15px;
+}
+
+.dnd5e.sheet.actor .inventory-filters .currency label {
+    flex: 1;
+    line-height: 17px;
+    color: var(--p5e-fg-color-shadow);
+    text-shadow: 2px 0px 2px var(--p5e-fg-color-half), 2px 2px 2px var(--p5e-fg-color-half), 0px 2px 2px var(--p5e-fg-color-half);
+    font-family: 'Wyse700b-2y';
+    font-size: 12px;
+}
+
+.dnd5e.sheet.actor .inventory-filters .currency input[type="text"] {
+    margin-left: 4px;
+}
+
+.dnd5e.sheet .filter-list {
+    margin: 0px 0px 2px 0px;
+}
+
+.dnd5e.sheet.actor .inventory-list .inventory-header {
+    border: 2px outset var(--p5e-fg-color-dark);
+    background-image: linear-gradient(0deg, var(--p5e-fg-color-lighter) 8px, var(--p5e-fg-color-darker) 8px, var(--p5e-fg-color-lighter) 12px, var(--p5e-fg-color-darker) 12px);
+}
+
+
+.dnd5e.sheet.actor .inventory-list .item .item-name .item-image {
+	background-color: var(--p5e-fg-color-dark);
+}
+
+.dnd5e.sheet.actor .inventory-list .item-list .item {
+    border-bottom: 1px solid var(--p5e-fg-color-shadow);
+    background-color: var(--p5e-fg-color-threequarter);
+}
+
+.dnd5e.sheet.actor .inventory-list .item .item-name {
+    border-right: 1px solid var(--p5e-fg-color-shadow);
+    margin: 0 -5px 0 0;
+    padding-left: 0px;
+}
+
+.dnd5e.sheet.actor .inventory-list .item-detail,
+.dnd5e.sheet.actor .inventory-list .item div[class^="spell-"] {
+	border-right: 1px solid var(--p5e-fg-color-shadow);
+	color: var(--p5e-fg-color-shadow);
+    text-shadow: 2px 0px 2px var(--p5e-fg-color-half), 2px 2px 2px var(--p5e-fg-color-half), 0px 2px 2px var(--p5e-fg-color-half);
+}
+
+.dnd5e.sheet.actor .inventory-list .item-weight {
+    border-left: none;
+}
+
+.dnd5e.sheet.actor .inventory-list .item-controls {
+    flex: 0 0 50px;
+}
+
+.dnd5e.sheet.actor .inventory-list .item-controls a {
+    color: var(--p5e-fg-color-shadow);
+    text-shadow: none;
+}
+
+.dnd5e.sheet.actor .inventory-list .item-controls a:hover {
+	color: #f8f8f8 !important;
+    text-shadow: 2px 0px 2px var(--p5e-fg-color-dark), 2px 2px 2px var(--p5e-fg-color-dark), 0px 2px 2px var(--p5e-fg-color-dark);
+}
+
+.dnd5e.sheet.actor .inventory-list .item-controls a.item-delete:hover {
+    color: #ff6666 !important;
+}
+
+.dnd5e.sheet.actor.character .inventory .item-controls .item-toggle,
+.dnd5e.sheet.actor.character .spellbook .item-controls .item-toggle,
+.dnd5e.sheet.actor.vehicle .features .item-controls .item-toggle {
+    color: var(--p5e-fg-color-shadow);
+    text-shadow: none;
+}
+
+.dnd5e.sheet.actor.character .inventory .item-controls .item-toggle.active,
+.dnd5e.sheet.actor.character .spellbook .item-controls .item-toggle.active,
+.dnd5e.sheet.actor.vehicle .features .item-controls .item-toggle.active {
+    color: var(--p5e-fg-color-light);
+    text-shadow: 2px 0px 2px var(--p5e-fg-color-dark), 2px 2px 2px var(--p5e-fg-color-dark), 0px 2px 2px var(--p5e-fg-color-dark);
+}
+
+.dnd5e.sheet.actor .spell-component {
+    line-height: 20px;
+    font-family: 'Wyse700b-2y';
+    font-size: 15px;
+    font-weight: bold;
+}
+.dnd5e.sheet.actor .spell-component.C,
+.dnd5e.sheet.actor .spell-component.R {
+    width: 12px;
+    border: 0px solid transparent;
+    border-radius: 8px;
+    background-color: var(--p5e-fg-color-light);
+    color: var(--p5e-fg-color-shadow);
+}
+
+.dnd5e.sheet.actor .spellcasting-ability {
+	flex: 0 0 250px;
+    margin: 5px 5px 5px 0px;
+    height: 38px;
+}
+
+.dnd5e.sheet.actor .spellcasting-ability select {
+	flex: 1;
+}
+
+.dnd5e.sheet.actor .inventory-list .item-summary {
+    border-top: 1px solid var(--p5e-fg-color-shadow);
+}
+
+.dnd5e.sheet .editable .rollable:hover {
+	text-shadow: none;
+}
+
+.dnd5e.sheet input[type="text"] {
+	border: none !important;
+    box-shadow: none !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+}
+
+.dnd5e.sheet.actor .editor,
+.journal-sheet.sheet .editor,
+textarea {
+	padding: 0px;
+    border-image: url('../../images/border-textbox-small.png') 13 11 fill round !important;
+    border-width: 13px 11px !important;
+    border-style: solid !important;
+    background-clip: content-box;
+    background-color: #F8F8F8;
+}
+
+.editor {
+    margin-top: 5px;
+}
+
+textarea:focus {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+
+.dnd5e.sheet input[type="text"]:hover,
+.dnd5e.sheet input[type="text"]:focus,
+.form-group input[name="initiative"],
+input[type="color"],
+input[type="text"],
+select {
+	border: 2px solid #687078 !important;
+    box-shadow: inset 4px 0px 3px 1px #C8C8D8, inset -4px 0px 3px 1px #C8C8D8 !important;
+    border-radius: 3px !important;
+    background-color: white !important;
+}
+
+/* character sheet - long rest and short rest buttons */
+.dnd5e.sheet.actor ul.attributes li.attribute .attribute-footer {
+    font-size: 11px !important;
+}
+
+.dexbutton {
+    content: '';
+    position: absolute;
+    cursor: pointer;
+}
+
+.dexbutton:hover {
+    background-color: rgba(255,255,255,0.5);
+}
+
+.dexbutton1 {
+    width: 18px;
+    height: 8px;
+    top: 2px;
+    left: 33px;
+}

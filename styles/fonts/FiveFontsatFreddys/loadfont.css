@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'five_fonts_at_freddysregular';
+    src: url('fivefontsatfreddys-regular-webfont.eot');
+    src: url('fivefontsatfreddys-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fivefontsatfreddys-regular-webfont.woff2') format('woff2'),
+         url('fivefontsatfreddys-regular-webfont.woff') format('woff'),
+         url('fivefontsatfreddys-regular-webfont.ttf') format('truetype'),
+         url('fivefontsatfreddys-regular-webfont.svg#five_fonts_at_freddysregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

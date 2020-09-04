@@ -1,0 +1,159 @@
+<div class="tab active" data-tab="general">
+    <form autocomplete="off" class="RetroUI-P5e">
+
+        <div class="form-group">
+            <label>{{localize "P5ESTYLES.ControldexColor"}}</label>
+            <div class="form-fields" style="flex-direction: column;">
+                <select name="controldexColorPreset">
+                    <option value="custom">{{localize "P5ESTYLES.ColorOptionCustom"}}</option>
+                    {{#select controldexColorPreset}}
+                    {{#each controldexPresets as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+                <div class="flexrow" style="margin-top: 5px;">
+                    <input type="text" name="controldexColor" value="{{controldexColor}}" data-dtype="String"/>
+                    <input type="color" name="controldexColorSelector" value="{{controldexColor}}" data-edit="controldexColor"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>{{localize "P5ESTYLES.SheetBackgroundColor"}}</label>
+            <div class="form-fields" style="flex-direction: column;">
+                <select name="SheetBackgroundColorPreset">
+                    <option value="custom">{{localize "P5ESTYLES.ColorOptionCustom"}}</option>
+                    {{#select SheetBackgroundColorPreset}}
+                    {{#each sheetColorPresets as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+                <div class="flexrow" style="margin-top: 5px;">
+                    <input type="text" name="SheetBackgroundColor" value="{{SheetBackgroundColor}}" data-dtype="String"/>
+                    <input type="color" name="SheetBackgroundColorSelector" value="{{SheetBackgroundColor}}" data-edit="SheetBackgroundColor"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>{{localize "P5ESTYLES.SheetForeroundColor"}}</label>
+            <div class="form-fields" style="flex-direction: column;">
+                <select name="SheetForegroundColorPreset">
+                    <option value="custom">{{localize "P5ESTYLES.ColorOptionCustom"}}</option>
+                    {{#select SheetForegroundColorPreset}}
+                    {{#each sheetColorPresets as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+                <div class="flexrow" style="margin-top: 5px;">
+                    <input type="text" name="SheetForegroundColor" value="{{SheetForegroundColor}}" data-dtype="String"/>
+                    <input type="color" name="SheetForegroundColorSelector" value="{{SheetForegroundColor}}" data-edit="SheetForegroundColor"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-fields" style="flex-direction: column;">
+                <label>{{localize "P5ESTYLES.ChatBoxPublic"}}</label>
+                <p class="note">{{localize "P5ESTYLES.ChatBoxPublicHint"}}</p>
+            </div>
+            <div class="form-fields" style="flex-direction: column;">
+                <select name="ChatBoxPublicBackgroundColorPreset">
+                    <option value="custom">{{localize "P5ESTYLES.ColorOptionCustom"}}</option>
+                    {{#select ChatBoxPublicBackgroundColorPreset}}
+                    {{#each sheetColorPresets as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+                <div class="flexrow" style="margin-top: 5px;">
+                    <input type="text" name="ChatBoxPublicBackgroundColor" value="{{ChatBoxPublicBackgroundColor}}" data-dtype="String"/>
+                    <input type="color" name="ChatBoxPublicBackgroundColorSelector" value="{{ChatBoxPublicBackgroundColor}}" data-edit="ChatBoxPublicBackgroundColor"/>
+                </div>
+                <select name="ChatBoxPublicBorder" style="margin-top: 5px;">
+                    {{#select ChatBoxPublicBorder}}
+                    {{#each chatBorders as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-fields" style="flex-direction: column;">
+                <label>{{localize "P5ESTYLES.ChatBoxWhisper"}}</label>
+                <p class="note">{{localize "P5ESTYLES.ChatBoxWhisperHint"}}</p>
+            </div>
+            <div class="form-fields" style="flex-direction: column;">
+                <select name="ChatBoxWhisperBackgroundColorPreset">
+                    <option value="custom">{{localize "P5ESTYLES.ColorOptionCustom"}}</option>
+                    {{#select ChatBoxWhisperBackgroundColorPreset}}
+                    {{#each sheetColorPresets as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+                <div class="flexrow" style="margin-top: 5px;">
+                    <input type="text" name="ChatBoxWhisperBackgroundColor" value="{{ChatBoxWhisperBackgroundColor}}" data-dtype="String"/>
+                    <input type="color" name="ChatBoxWhisperBackgroundColorSelector" value="{{ChatBoxWhisperBackgroundColor}}" data-edit="ChatBoxWhisperBackgroundColor"/>
+                </div>
+                <select name="ChatBoxWhisperBorder" style="margin-top: 5px;">
+                    {{#select ChatBoxWhisperBorder}}
+                    {{#each chatBorders as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-fields" style="flex-direction: column;">
+                <label>{{localize "P5ESTYLES.ChatBoxBlind"}}</label>
+                <p class="note">{{localize "P5ESTYLES.ChatBoxBlindHint"}}</p>
+            </div>
+            <div class="form-fields" style="flex-direction: column;">
+                <select name="ChatBoxBlindBackgroundColorPreset">
+                    <option value="custom">{{localize "P5ESTYLES.ColorOptionCustom"}}</option>
+                    {{#select ChatBoxBlindBackgroundColorPreset}}
+                    {{#each sheetColorPresets as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+                <div class="flexrow" style="margin-top: 5px;">
+                    <input type="text" name="ChatBoxBlindBackgroundColor" value="{{ChatBoxBlindBackgroundColor}}" data-dtype="String"/>
+                    <input type="color" name="ChatBoxBlindBackgroundColorSelector" value="{{ChatBoxBlindBackgroundColor}}" data-edit="ChatBoxBlindBackgroundColor"/>
+                </div>
+                <select name="ChatBoxBlindBorder" style="margin-top: 5px;">
+                    {{#select ChatBoxBlindBorder}}
+                    {{#each chatBorders as |name key|}}
+                    <option value="{{key}}">{{name}}</option>
+                    {{/each}}
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label style="flex: 0 0 100%;">{{localize "P5ESTYLES.ChatBordersReference"}}</label>
+            <img style="flex: none;border:none;" src="/modules/RetroUI-P5e/images/chatborders.png"/>
+        </div>
+
+        <!-- Settings Footer -->
+        <footer class="sheet-footer flexrow">
+            <button type="submit" name="submit">
+                <i class="far fa-save"></i> {{localize 'SETTINGS.Save'}}
+            </button>
+            <button type="button" name="reset">
+                <i class="fas fa-undo"></i> {{localize 'SETTINGS.Reset'}}
+            </button>
+        </footer>
+
+    </form>
+
+</div>

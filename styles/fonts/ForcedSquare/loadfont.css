@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'forced_squaremedium';
+    src: url('forced_square-webfont.eot');
+    src: url('forced_square-webfont.eot?#iefix') format('embedded-opentype'),
+         url('forced_square-webfont.woff2') format('woff2'),
+         url('forced_square-webfont.woff') format('woff'),
+         url('forced_square-webfont.ttf') format('truetype'),
+         url('forced_square-webfont.svg#forced_squaremedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
