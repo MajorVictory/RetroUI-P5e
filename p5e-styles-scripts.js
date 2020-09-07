@@ -80,8 +80,10 @@ Hooks.once('init', () => {
 });
 
 Hooks.once('ready', () => {
-	RetroUIP5eStylesConfig.apply(RetroUIP5eStylesConfig.getOptions);
+    RetroUIP5eStylesConfig.apply(RetroUIP5eStylesConfig.getOptions);
+});
 
+Hooks.once('renderSceneControls', () => {
     // controldex button 1 - opens styles config menu
     $('#controls').append($('<p>', { class: 'dexbutton dexbutton1' }).click(function(event) {
             const menu = game.settings.menus.get("RetroUI-P5e.RetroUI-P5e");
