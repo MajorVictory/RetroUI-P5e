@@ -28,8 +28,11 @@
 **[Required Modules]**
  * None
 
-**[Sheet Module Compatibility]**
+**[Specific Module Compatibility]**
  * dnd5e - Alt5eSheet
+ * itemcollection
+ * The Furnace
+ * [Request More](https://github.com/MajorVictory/RetroUI-P5e/issues)
 
 **[Known Issues]**
  * *Not Compatible* with Tidy5eSheet, support coming soon™.

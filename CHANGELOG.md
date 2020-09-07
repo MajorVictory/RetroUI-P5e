@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 1.2.2
+
+ * Module Support: fixes styling for backpack items from itemcollection module. (fixes #4)
+
 ## Version 1.2.1
 
  * Bugfix: macro textbox becomes unusable when Furnace Module enabled. (fixes #3)
