@@ -18,6 +18,27 @@
 }
 
 /* ******************************************* */
+/* ******************** Module Specific Styles */
+/* ******************************************* */
+
+.dexbutton {
+    content: '';
+    position: absolute;
+    cursor: pointer;
+}
+
+.dexbutton:hover {
+    background-color: rgba(255,255,255,0.5);
+}
+
+.dexbutton1 {
+    width: 18px;
+    height: 8px;
+    top: 2px;
+    left: 33px;
+}
+
+/* ******************************************* */
 /* ***************************** Pause overlay */
 /* ******************************************* */
 
@@ -1882,12 +1903,25 @@ nav.list-filters a.filter.active {
 .journal-sheet.sheet .editor,
 textarea {
 	padding: 0px;
+    border-image: url('../../images/border-textbox-small.png') 13 11 fill round;
+    border-width: 13px 11px;
+    border-style: solid;
+    background-clip: content-box;
+    background-color: #F8F8F8;
+}
+
+/* Furnace Compat */
+
+.furnace-macro-command.form-group {
     border-image: url('../../images/border-textbox-small.png') 13 11 fill round !important;
     border-width: 13px 11px !important;
     border-style: solid !important;
     background-clip: content-box;
     background-color: #F8F8F8;
 }
+
+/* Furnace Compat */
+
 
 .editor {
     margin-top: 5px;
@@ -2072,22 +2106,5 @@ select {
 
 
 /* ******************************************* */
-/* ******************** Module Specific Styles */
+/* **************** Tid5eSheet Specific Styles */
 /* ******************************************* */
-
-.dexbutton {
-    content: '';
-    position: absolute;
-    cursor: pointer;
-}
-
-.dexbutton:hover {
-    background-color: rgba(255,255,255,0.5);
-}
-
-.dexbutton1 {
-    width: 18px;
-    height: 8px;
-    top: 2px;
-    left: 33px;
-}

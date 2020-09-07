@@ -35,7 +35,7 @@
  * *Not Compatible* with Tidy5eSheet, support coming soon™.
  * *Unknown Compatibility* with game specific sheets and dialogs
 
-### Latest Release: V1.2.0
+### Latest Release
 
 You can download the module in it's current state by pasting the following manifest url into Foundry.
 

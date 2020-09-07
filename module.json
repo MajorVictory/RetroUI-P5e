@@ -2,7 +2,7 @@
   "name": "RetroUI-P5e",
   "title": "Retro UI - P5e",
   "description": "Adds UI Styles loosely based on early hendheld console games.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "MajorVictory",
   "esmodules": [
     "p5e-styles-scripts.js"
@@ -20,7 +20,7 @@
   "packs": [],
   "url": "https://github.com/MajorVictory/RetroUI-P5e",
   "manifest": "https://raw.githubusercontent.com/MajorVictory/RetroUI-P5e/master/module.json",
-  "download": "https://github.com/MajorVictory/RetroUI-P5e/releases/download/v1.2.0/RetroUI-P5e.zip",
+  "download": "https://github.com/MajorVictory/RetroUI-P5e/releases/download/v1.2.1/RetroUI-P5e.zip",
   "minimumCoreVersion": "0.6.6",
   "compatibleCoreVersion": "0.6.6"
 }
