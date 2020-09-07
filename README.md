@@ -19,18 +19,23 @@
 
 ### Requirements
 
-**[Compatibility]**: *FoundryVTT* 0.6.5  
+**[Core Compatibility]**:
+ * *FoundryVTT* 0.6.5-0.6.6  
 
-**[Systems]**: *dnd5e*
+**[Systems Compatibility]**:
+ * *dnd5e* 0.95-0.96
 
 **[Required Modules]**
  * None
 
-**[Known Issues]**
- * *Not Compatible* with other sheet addons like Tidy5eSheet, support coming soon™.
- * *Unknown Compatibility* with other game systems
+**[Sheet Module Compatibility]**
+ * dnd5e - Alt5eSheet
 
-### Latest Release: V1.1.0
+**[Known Issues]**
+ * *Not Compatible* with Tidy5eSheet, support coming soon™.
+ * *Unknown Compatibility* with game specific sheets and dialogs
+
+### Latest Release: V1.2.0
 
 You can download the module in it's current state by pasting the following manifest url into Foundry.
 
@@ -66,7 +71,7 @@ Retro UI (P5e) is a module for Foundry VTT by Majorvictory and is licensed under
 
 This work is licensed under Foundry Virtual Tabletop [EULA - Limited License Agreement for module development from May 29, 2020](https://foundryvtt.com/article/license/).
 
-[foundry-shield]: https://img.shields.io/badge/Foundry-v0.6.5-informational
+[foundry-shield]: https://img.shields.io/badge/Foundry-v0.6.6-informational
 [foundry-url]: https://foundryvtt.com/
 [forks-shield]: https://img.shields.io/github/forks/MajorVictory/RetroUI-P5e.svg?style=flat-square
 [forks-url]: https://github.com/MajorVictory/RetroUI-P5e/network/members
