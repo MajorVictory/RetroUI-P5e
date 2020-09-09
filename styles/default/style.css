@@ -17,6 +17,16 @@
 	--p5e-chatbg-color-blind: #b088d0;
 }
 
+.monsterblock.retroui-p5e {
+    --heading-color: var(--p5e-fg-color);
+    --roll-hover-color: var(--p5e-fg-color-light);
+    --divider-color: var(--p5e-fg-color-light);
+    --background-filter: var(--p5e-bg-color-darker);
+    --background-blend: multiply;
+    --main-text-color: black;
+    --inline-link-color: var(--p5e-fg-color-light);
+}
+
 /* ******************************************* */
 /* ******************** Module Specific Styles */
 /* ******************************************* */
@@ -1034,7 +1044,7 @@ footer.compendium-footer > span:nth-child(2) {
 /* ************************** Vanilla Specific */
 /* ******************************************* */
 
-.window-app .window-content {
+.window-app:not(.monsterblock) .window-content {
     background-color: var(--p5e-bg-color) !important;
     background-image: url('../../images/window-bg.png') !important;
 }
@@ -1096,7 +1106,7 @@ footer.compendium-footer > span:nth-child(2) {
     cursor: nwse-resize;
 }
 
-.window-app .window-content .sheet-header,
+.window-app:not(.monsterblock) .window-content .sheet-header,
 .tidy5e-header {
 	background-color: #FFFBCE !important;
     border-image: url('../../images/border-interior.png') 10 round !important;
@@ -1118,12 +1128,19 @@ footer.compendium-footer > span:nth-child(2) {
 }
 
 .window-app .window-header a {
-	width:32px;
+	width:25px;
 	text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
 }
+
+.monsterblock .window-header a.close {
+    position: relative !important;
+    right: 0px !important;
+}
+
 .window-app .window-header a.close:hover {
 	color: #ff6666;
 }
+
 
 .window-app .window-header .window-title {
     font-family: squarefontregular;
@@ -2281,8 +2298,26 @@ select {
 }
 
 .tidy5e.sheet.actor .header-attributes {
+    flex: 0 0 244px !important;
     margin: 0px !important;
-    padding-top: 5px;
+    padding-top: 5px !important;
+}
+
+.tidy5e.sheet.actor.npc .header-attributes {
+    padding-top: 0px !important;
+    height: 87px !important;
+}
+
+.tidy5e.sheet.actor.npc .header-attribute {
+    height: auto !important;
+}
+
+.tidy5e.sheet.actor.npc .header-attributes .health {
+    flex: 0 0 90px !important;
+}
+
+.tidy5e.sheet.actor.npc .header-attributes .npc-speed {
+    flex: 0 0 100px !important;
 }
 
 .tidy5e.sheet.actor .ability-scores {
@@ -2295,15 +2330,36 @@ select {
     height: 55px !important;
 }
 
+
+.tidy5e.sheet.actor.npc .ability-scores {
+    height: auto !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.tidy5e.dnd5e.sheet.actor.npc .ability-scores .ability {
+    width: 45px !important;
+    height: 74px !important;
+    padding: 1px 0px 0px 0px;
+}
+
+.tidy5e.sheet.actor.npc .ability-scores .ability .ability-name {
+    line-height: 26px !important;
+    font-size: 16px !important;
+}
+
+.tidy5e.dnd5e.sheet.actor.npc .ability-scores .ability::after {
+    width: 9px !important;
+    height: 14px !important;
+    border-image: url('../../images/bg-attribute-tidy5e-npc.png') 38 15 35 16 fill stretch !important;
+    border-width: 38px 18px 35px 18px !important;
+}
+
 .tidy5e.dnd5e.sheet.actor .ability-scores .ability::after {
     width: 28px;
     height: 15px;
     border-image: url('../../images/bg-attribute-tidy5e.png') 24 24 16 24 fill stretch !important;
     border-width: 24px 24px 16px 24px !important;
-}
-
-.tidy5e.sheet.actor .ability-scores .ability .ability-modifiers .ability-proficiency {
-    line-height: 14px !important;
 }
 
 .tidy5e.dnd5e.sheet.actor ul.skills-list li:nth-child(1) {
@@ -2317,6 +2373,21 @@ select {
 
 .tidy5e.sheet.actor .center-pane {
     margin-left: 0px !important;
+}
+
+.tidy5e.sheet.actor.npc .left-pane {
+    margin: 0px 3px 0px 3px;
+}
+
+.tidy5e.sheet.actor.npc .center-pane {
+    margin: 8px 0px 0px 8px !important;
+}
+
+.tidy5e.sheet.actor.npc .spellcasting-ability {
+    margin: 5px 0px 0px 0px !important;
+    padding: 0px 5px !important;
+    background: var(--p5e-fg-color) !important;
+    border: 2px outset var(--p5e-fg-color-dark);
 }
 
 .tidy5e.sheet.actor .center-pane ul.attributes {
