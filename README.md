@@ -24,6 +24,7 @@
 
 **[Systems Compatibility]**:
  * *dnd5e* 0.95-0.96
+ * *Simple World-Building* 0.36
 
 **[Required Modules]**
  * None
@@ -31,6 +32,7 @@
 **[Specific Module Compatibility]**
  * dnd5e - Alt5eSheet
  * dnd5e - Tidy5eSheet
+ * DynamicEffects
  * itemcollection
  * The Furnace
  * Monsterblock

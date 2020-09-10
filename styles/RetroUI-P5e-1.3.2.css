@@ -1494,7 +1494,8 @@ a:hover,
 .dnd5e.sheet .sheet-header img.profile,
 .dnd5e.sheet.item .sheet-header img.profile,
 .macro-sheet.sheet .sheet-header img,
-.tidy5e.sheet.actor .portrait img {
+.tidy5e.sheet.actor .portrait img,
+.worldbuilding .sheet-header .profile-img {
 	background: var(--p5e-fg-color);
     border: 4px outset var(--p5e-fg-color-dark);
     border-radius: 4px;
@@ -1654,7 +1655,7 @@ a:hover,
 	font-size: 1.3em !important;
 }
 
-.sheet-tabs .item {
+div:not(.worldbuilding) .sheet-tabs .item {
     font-size: 1.1em !important;
     line-height: 1.7em !important;
 }
@@ -1950,7 +1951,8 @@ nav.list-filters a.filter.active {
 
 /* module compat: itemcollection */
 .dnd5e.sheet.actor .inventory-list .inventory-header,
-.dnd5e.sheet.item .inventory-list .inventory-header {
+.dnd5e.sheet.item .inventory-list .inventory-header,
+.worldbuilding .attributes-header {
     border: 2px outset var(--p5e-fg-color-dark) !important;
     background-image: linear-gradient(0deg, var(--p5e-fg-color-lighter) 8px, var(--p5e-fg-color-darker) 8px, var(--p5e-fg-color-lighter) 12px, var(--p5e-fg-color-darker) 12px) !important;
 }
@@ -2114,6 +2116,7 @@ nav.list-filters a.filter.active {
 
 .dnd5e.sheet.actor .editor,
 .journal-sheet.sheet .editor,
+.worldbuilding .editor,
 textarea {
 	padding: 0px;
     border-image: url('../images/border-textbox-small.png') 13 11 fill round;
@@ -2610,4 +2613,28 @@ select {
     border-radius: 10px !important;
     margin: 0px 0px 5px 0px !important;
     padding: 2px !important;
+}
+
+
+/* ******************************************* */
+/* ****** Simple Worldbuilding Specific Styles */
+/* ******************************************* */
+
+.worldbuilding .sheet-header {
+    height: auto;
+}
+
+.worldbuilding .tabs .item {
+    text-decoration: none !important;
+}
+
+.worldbuilding .item-list .item img {
+    border: 1px outset var(--p5e-fg-color-dark);
+    background-color: var(--p5e-fg-color);
+}
+
+.worldbuilding .item-list .item {
+    border-bottom: 1px solid var(--p5e-fg-color-shadow);
+    background-color: var(--p5e-fg-color-half);
+    border-radius: 0px !important;
 }

@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 1.3.2
+
+ * System Support: Simple Worldbuilding
 
 ## Version 1.3.1
 
