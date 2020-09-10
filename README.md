@@ -30,12 +30,13 @@
 
 **[Specific Module Compatibility]**
  * dnd5e - Alt5eSheet
+ * dnd5e - Tidy5eSheet
  * itemcollection
  * The Furnace
+ * Monsterblock
  * [Request More](https://github.com/MajorVictory/RetroUI-P5e/issues)
 
 **[Known Issues]**
- * *Not Compatible* with Tidy5eSheet, support coming soon™.
  * *Unknown Compatibility* with game specific sheets and dialogs
 
 ### Latest Release
@@ -55,6 +56,14 @@ You can download the module in it's current state by pasting the following manif
 ### Character sheets
 
 ![](readme/Sheets-9-4-2020.png)
+
+Monsterblock
+
+![](readme/Monsterblock-9-8-2020.png)
+
+Tidy5eSheet
+
+![](readme/tidy5esheet-9-9-2020.png)
 
 ### Customizable Colors
 

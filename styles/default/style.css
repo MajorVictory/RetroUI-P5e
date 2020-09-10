@@ -17,6 +17,16 @@
 	--p5e-chatbg-color-blind: #b088d0;
 }
 
+.monsterblock.retroui-p5e {
+    --heading-color: var(--p5e-fg-color);
+    --roll-hover-color: var(--p5e-fg-color-light);
+    --divider-color: var(--p5e-fg-color-light);
+    --background-filter: var(--p5e-bg-color-darker);
+    --background-blend: multiply;
+    --main-text-color: black;
+    --inline-link-color: var(--p5e-fg-color-light);
+}
+
 /* ******************************************* */
 /* ******************** Module Specific Styles */
 /* ******************************************* */
@@ -1034,7 +1044,7 @@ footer.compendium-footer > span:nth-child(2) {
 /* ************************** Vanilla Specific */
 /* ******************************************* */
 
-.window-app .window-content {
+.window-app:not(.monsterblock) .window-content {
     background-color: var(--p5e-bg-color) !important;
     background-image: url('../../images/window-bg.png') !important;
 }
@@ -1096,14 +1106,15 @@ footer.compendium-footer > span:nth-child(2) {
     cursor: nwse-resize;
 }
 
-.window-app .window-content .sheet-header {
+.window-app:not(.monsterblock) .window-content .sheet-header,
+.tidy5e-header {
 	background-color: #FFFBCE !important;
     border-image: url('../../images/border-interior.png') 10 round !important;
     border-width: 10px !important;
     border-style: solid !important;
     border-radius: 15px !important;
-    margin: 0px 0px 5px 0px !important;
-    padding: 0px !important;
+    margin: 0px 0px 5px 0px;
+    padding: 0px;
 }
 
 .window-app .window-header a > i {
@@ -1117,12 +1128,19 @@ footer.compendium-footer > span:nth-child(2) {
 }
 
 .window-app .window-header a {
-	width:32px;
+	width:25px;
 	text-shadow: 2px 0px black, 2px 2px 2px black, 0px 2px black;
 }
+
+.monsterblock .window-header a.close {
+    position: relative !important;
+    right: 0px !important;
+}
+
 .window-app .window-header a.close:hover {
 	color: #ff6666;
 }
+
 
 .window-app .window-header .window-title {
     font-family: squarefontregular;
@@ -1143,7 +1161,7 @@ button[type="submit"],
     border-style: solid !important;
     background-clip: border-box !important;
     box-sizing: border-box;
-    background: rgb(128,192,216);
+    background: rgb(128,192,216) !important;
     background: url('../../images/scene-button-bg-normal.png'), linear-gradient(0deg, #80C0D8 40%, #3890D8 40%) !important;
     background-position: left 70%, center center !important;
     background-repeat: repeat-x !important;
@@ -1163,22 +1181,27 @@ button[type="submit"]:hover,
 .filepicker .display-modes a:hover,
 .filepicker .display-modes a.active {
     border-image: url('../../images/border-control-button-select.png') 12 round !important;
-    background: url('../../images/scene-button-bg-select.png'), linear-gradient(0deg, #A8E8F8 40%, #78D0E8 40%);
-    background-clip: border-box;
-    background-size: auto, 100% 137%;
+    background: url('../../images/scene-button-bg-select.png'), linear-gradient(0deg, #A8E8F8 40%, #78D0E8 40%) !important;
+    background-position: left 70%, center center !important;
+    background-repeat: repeat-x !important;
+    background-clip: border-box !important;
+    background-size: auto, 100% 137% !important;
     box-shadow: none !important;
 }
 
 .form-group button,
 .filepicker .current-dir button,
 .chat-card .card-buttons button,
-.filepicker .display-modes a {
+.filepicker .display-modes a,
+.tidy5e.sheet.actor .inventory-list .inventory-header .item-controls a.item-create,
+.tidy5e-sheet .sheet-body .tidy5e-delete-lock .tidy5e-delete-toggle {
 	padding: 4px;
     border-image: url('../../images/border-button-small.png') 3 stretch !important;
     border-width: 3px !important;
     border-style: solid !important;
-    background: rgb(128,192,216);
-    background: url('../../images/scene-button-bg-normal.png'), linear-gradient(0deg, #80C0D8 40%, #3890D8 40%);
+    border-radius: 0px !important;
+    background: rgb(128,192,216) !important;
+    background: url('../../images/scene-button-bg-normal.png'), linear-gradient(0deg, #80C0D8 40%, #3890D8 40%) !important;
     background-position: left 70%, center center !important;
     background-repeat: repeat-x !important;
     background-clip: padding-box !important;
@@ -1190,9 +1213,13 @@ button[type="submit"]:hover,
 }
 
 .form-group button:hover,
-.chat-card .card-buttons button:hover {
+.chat-card .card-buttons button:hover,
+.tidy5e.sheet.actor .inventory-list .inventory-header .item-controls a.item-create:hover {
 	border-image: url('../../images/border-button-small-select.png') 3 stretch !important;
-	background: url('../../images/scene-button-bg-select.png'), linear-gradient(0deg, #A8E8F8 40%, #78D0E8 40%)
+	background: url('../../images/scene-button-bg-select.png'), linear-gradient(0deg, #A8E8F8 40%, #78D0E8 40%) !important;
+    background-position: left 70%, center center !important;
+    background-repeat: repeat-x !important;
+    background-clip: padding-box !important;
 }
 
 #client-settings section.content {
@@ -1201,6 +1228,16 @@ button[type="submit"]:hover,
 
 #client-settings section.content .submenu > button {
     font-size: 14px;
+}
+
+#trait-selector .trait-list {
+    background-color: #FFFBCE !important;
+    border-image: url(/modules/RetroUI-P5e/images/border-interior-small.png) 5 round !important;
+    border-image-outset: 0px !important;
+    border-width: 5px !important;
+    border-style: solid !important;
+    padding: 0px !important;
+    border-radius: 5px;
 }
 
 
@@ -1218,8 +1255,8 @@ form .form-group {
 	border-image: url('../../images/border-controlgroup.png') 7 round !important;
     border-width: 7px !important;
     border-style: solid !important;
-    border-radius: 15px;
-    background-color: #F7CB73;
+    border-radius: 15px !important;
+    background-color: #F7CB73 !important;
 }
 
 /* module compat: itemcollection */
@@ -1399,7 +1436,8 @@ a:hover,
 
 .dnd5e.sheet .sheet-header img.profile,
 .dnd5e.sheet.item .sheet-header img.profile,
-.macro-sheet.sheet .sheet-header img {
+.macro-sheet.sheet .sheet-header img,
+.tidy5e.sheet.actor .portrait img {
 	background: var(--p5e-fg-color);
     border: 4px outset var(--p5e-fg-color-dark);
     border-radius: 4px;
@@ -1444,7 +1482,8 @@ a:hover,
     background: url('../../images/bg-exp-fill.png');
 }
 
-.dnd5e.sheet.actor.character .sheet-header .charlevel {
+.dnd5e.sheet.actor.character .sheet-header .charlevel,
+.tidy5e.sheet.actor .class-list li {
     padding: 2px;
     color: var(--p5e-fg-color-shadow);
     font-family: 'euxoiregular';
@@ -1454,7 +1493,8 @@ a:hover,
 }
 
 .dnd5e.sheet.actor .sheet-header .summary,
-.dnd5e.sheet.item .sheet-header .summary {
+.dnd5e.sheet.item .sheet-header .summary,
+.tidy5e.sheet.actor .origin-summary {
 	border: 2px outset var(--p5e-fg-color-dark) !important;
     background-image: linear-gradient(0deg, var(--p5e-fg-color-lighter) 8px, var(--p5e-fg-color-darker) 8px, var(--p5e-fg-color-lighter) 12px, var(--p5e-fg-color-darker) 12px) !important;
     font-family: squarefontregular !important;
@@ -1467,8 +1507,9 @@ a:hover,
     padding-left: 2px !important;
 }
 
-.dnd5e.sheet.actor .sheet-header .attributes {
-    background-color: var(--p5e-fg-color-half);
+.dnd5e.sheet.actor .sheet-header .attributes,
+.tidy5e.sheet.actor .header-attributes {
+    background-color: var(--p5e-fg-color);
     border-left: 2px outset var(--p5e-fg-color-dark);
     border-right: 2px outset var(--p5e-fg-color-dark);
     border-bottom: 2px outset var(--p5e-fg-color-dark);
@@ -1478,7 +1519,8 @@ a:hover,
     margin: 0px 2px;
 }
 
-.ddn5e.sheet.actor .sheet-header .attributes .attribute {
+.ddn5e.sheet.actor .sheet-header .attributes .attribute,
+.tidy5e.sheet.actor .header-attribute {
     border-right: 2px solid var(--p5e-fg-color-dark);
 }
 
@@ -1504,7 +1546,8 @@ a:hover,
 
 .sheet-navigation,
 .sheet-tabs,
-.list-filters {
+.list-filters,
+.tidy5e-navigation {
 	border-image: url('../../images/border-header.png') 6 repeat !important;
     border-width: 6px !important;
     border-style: solid !important;
@@ -1516,7 +1559,8 @@ a:hover,
 .sheet-tabs .item,
 .filepicker-header .tabs .item,
 .list-filters .filter,
-.dnd5e.sheet .filter-list .filter-item {
+.dnd5e.sheet .filter-list .filter-item,
+.tidy5e-navigation .item {
 	min-width: 80px;
     height: 30px !important;
     margin: 0px 5px !important;
@@ -1587,7 +1631,8 @@ nav.list-filters a.filter.active {
 .sheet-tabs .item:hover,
 .filepicker-header .tabs .item:hover,
 .list-filters .filter:hover,
-.dnd5e.sheet .filter-list .filter-item:hover {
+.dnd5e.sheet .filter-list .filter-item:hover,
+.tidy5e-navigation .item:hover {
     color: white;
     text-shadow: 2px 0px 2px #004890, 2px 2px 2px #004890, 0px 2px 2px #004890;
 }
@@ -1596,7 +1641,8 @@ nav.list-filters a.filter.active {
 .sheet-tabs .item.active,
 .filepicker-header .tabs .item.active,
 .list-filters .filter.active,
-.dnd5e.sheet .filter-list .filter-item.active {
+.dnd5e.sheet .filter-list .filter-item.active,
+.tidy5e-navigation .item.active {
     border: none !important;
     background-image: 
 	    url('../../images/tab-item-bg-left-active.png'),
@@ -1856,6 +1902,7 @@ nav.list-filters a.filter.active {
 .dnd5e.sheet.actor .inventory-list .item .item-name .item-image,
 .dnd5e.sheet.item .inventory-list .item .item-name .item-image {
 	background-color: var(--p5e-fg-color-dark);
+    border-radius: 0px !important;
 }
 
 /* module compat: itemcollection */
@@ -1863,6 +1910,7 @@ nav.list-filters a.filter.active {
 .dnd5e.sheet.item .inventory-list .item {
     border-bottom: 1px solid var(--p5e-fg-color-shadow);
     background-color: var(--p5e-fg-color-threequarter);
+    border-radius: 0px !important;
 }
 
 .dnd5e.sheet.actor .inventory-list .item .item-name,
@@ -2140,7 +2188,8 @@ select {
     margin: 0 -2px 0 0;
 }
 
-.alt5e.dnd5e.sheet.actor.character .inventory .item-controls .item-toggle.active, .alt5e.dnd5e.sheet.actor.character .spellbook .item-controls .item-toggle.active {
+.alt5e.dnd5e.sheet.actor.character .inventory .item-controls .item-toggle.active,
+.alt5e.dnd5e.sheet.actor.character .spellbook .item-controls .item-toggle.active {
     color: var(--p5e-fg-color-light) !important;
     text-shadow: none !important;
 }
@@ -2171,7 +2220,296 @@ select {
     height: calc(100% - 45px);
 }
 
-
 /* ******************************************* */
 /* **************** Tid5eSheet Specific Styles */
 /* ******************************************* */
+
+.tidy5e-header {
+    margin: 5px;
+    padding: 5px !important;
+}
+
+.tidy5e.sheet.actor .char-name {
+    font-family: wobbly_solidnormal;
+    font-size: 20px !important;
+    font-weight: 100;
+    letter-spacing: 0.05em;
+}
+
+.tidy5e.sheet.actor .resting,
+.tidy5e.sheet.actor .exhaustion-wrap {
+    background: var(--p5e-fg-color) !important;
+    color: var(--p5e-fg-color-dark) !important;
+}
+
+.tidy5e.sheet.actor .exhaustion-wrap .exhaustion-icon,
+.tidy5e.sheet.actor .resting-icon {
+    background: var(--p5e-fg-color) !important;
+    color: var(--p5e-fg-color-dark) !important;
+}
+
+.tidy5e.sheet.actor .inspiration label {
+    background: var(--p5e-fg-color) !important;
+    color: var(--p5e-fg-color-dark) !important;
+}
+
+.tidy5e.sheet.actor .inspiration input:checked + label {
+    background: var(--p5e-fg-color-shadow) !important;
+}
+.tidy5e.sheet.actor .inspiration input:checked + label i {
+    color: var(--p5e-fg-color) !important;
+}
+
+.tidy5e.sheet.actor .xp-bar-total {
+    height: 7px !important;
+    width: 100% !important;
+    background:
+        url('../../images/bg-exp-left.png'),
+        url('../../images/bg-exp-right.png'),
+        url('../../images/bg-exp-empty.png') !important;
+    border: none !important;
+    border-radius: 0px !important;
+    background-repeat: no-repeat,no-repeat, no-repeat !important;
+    background-position: left center, right center, center center !important;
+    background-size: contain, contain, calc(100% - 6px) 100% !important;
+    padding: 0px 3px 0px 16px;
+}
+
+.tidy5e.sheet.actor .xp-bar-current {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    height: 7px !important;
+    border: none;
+    border-radius: 0px;
+    background-repeat: repeat-x !important;
+    background: url('../../images/bg-exp-fill.png') !important;
+    position: relative !important;
+    background-size: contain !important;
+}
+
+.tidy5e-navigation {
+    margin: 0px 5px !important;
+}
+
+.tidy5e.sheet.actor .sheet-body {
+    margin: 0px 5px 5px 5px !important;
+    padding: 0px !important;
+}
+
+.tidy5e.sheet.actor .header-attributes {
+    flex: 0 0 244px !important;
+    margin: 0px !important;
+    padding-top: 5px !important;
+}
+
+.tidy5e.sheet.actor.npc .header-attributes {
+    padding-top: 0px !important;
+    height: 87px !important;
+}
+
+.tidy5e.sheet.actor.npc .header-attribute {
+    height: auto !important;
+}
+
+.tidy5e.sheet.actor.npc .header-attributes .health {
+    flex: 0 0 90px !important;
+}
+
+.tidy5e.sheet.actor.npc .header-attributes .npc-speed {
+    flex: 0 0 100px !important;
+}
+
+.tidy5e.sheet.actor .ability-scores {
+    flex: 0 77px !important;
+    height: 332px !important;
+}
+
+.tidy5e.sheet.actor .ability-scores .ability {
+    width: 76px !important;
+    height: 55px !important;
+}
+
+
+.tidy5e.sheet.actor.npc .ability-scores {
+    height: auto !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.tidy5e.dnd5e.sheet.actor.npc .ability-scores .ability {
+    width: 45px !important;
+    height: 74px !important;
+    padding: 1px 0px 0px 0px;
+}
+
+.tidy5e.sheet.actor.npc .ability-scores .ability .ability-name {
+    line-height: 26px !important;
+    font-size: 16px !important;
+}
+
+.tidy5e.dnd5e.sheet.actor.npc .ability-scores .ability::after {
+    width: 9px !important;
+    height: 14px !important;
+    border-image: url('../../images/bg-attribute-tidy5e-npc.png') 38 15 35 16 fill stretch !important;
+    border-width: 38px 18px 35px 18px !important;
+}
+
+.tidy5e.dnd5e.sheet.actor .ability-scores .ability::after {
+    width: 28px;
+    height: 15px;
+    border-image: url('../../images/bg-attribute-tidy5e.png') 24 24 16 24 fill stretch !important;
+    border-width: 24px 24px 16px 24px !important;
+}
+
+.tidy5e.dnd5e.sheet.actor ul.skills-list li:nth-child(1) {
+    margin-top: -4px;
+}
+
+.tidy5e.dnd5e.sheet.actor ul.skills-list li.skill {
+    margin-left: -4px;
+    margin-right: -4px;
+}
+
+.tidy5e.sheet.actor .center-pane {
+    margin-left: 0px !important;
+}
+
+.tidy5e.sheet.actor.npc .left-pane {
+    margin: 0px 3px 0px 3px;
+}
+
+.tidy5e.sheet.actor.npc .center-pane {
+    margin: 8px 0px 0px 8px !important;
+}
+
+.tidy5e.sheet.actor.npc .spellcasting-ability {
+    margin: 5px 0px 0px 0px !important;
+    padding: 0px 5px !important;
+    background: var(--p5e-fg-color) !important;
+    border: 2px outset var(--p5e-fg-color-dark);
+}
+
+.tidy5e.sheet.actor .center-pane ul.attributes {
+    border-radius: 0px !important;
+    border: 2px outset var(--p5e-fg-color-dark) !important;
+}
+
+.tidy5e.sheet.actor .attribute-name {
+    border: none !important;
+    line-height: 15px !important;
+    font-family: squarefontregular;
+    font-size: 12px !important;
+    font-weight: 100;
+    padding: 4px 0px 0px 0px;
+    text-shadow: 2px 0px 2px var(--p5e-fg-color-lighter), 2px 2px 2px var(--p5e-fg-color-lighter), 0px 2px 2px var(--p5e-fg-color-lighter);
+    color: var(--p5e-fg-color-shadow);
+}
+
+.tidy5e.sheet.actor .favorites {
+    padding: 0px 2px;
+    background-color: #FFFBCE !important;
+    border-image: url(../../images/border-interior-small.png) 5 round !important;
+    border-width: 5px !important;
+    border-style: solid !important;
+    border-radius: 10px !important;
+}
+
+.tidy5e.sheet.actor .favorites .inventory-list {
+    border: none !important;
+    border-radius: 0px !important;
+}
+
+.tidy5e.sheet.actor .inventory-list .item.attuned,
+.tidy5e.sheet.actor .inventory-list .item.prepared {
+    background: var(--p5e-fg-color) !important;
+}
+
+.tidy5e.sheet.actor .inventory-list .item-detail,
+.tidy5e.sheet.actor .inventory-list .item-controls,
+.tidy5e.sheet.actor .inventory-list .spell-detail {
+    border-left: none !important;
+    border-right: 1px solid var(--p5e-fg-color-shadow) !important;
+    color: var(--p5e-fg-color-shadow) !important;
+    text-shadow: 2px 0px 2px var(--p5e-fg-color-half), 2px 2px 2px var(--p5e-fg-color-half), 0px 2px 2px var(--p5e-fg-color-half) !important;
+}
+
+.tidy5e.sheet.actor .inventory-filters {
+    border: none !important;
+    margin: 5px 0px !important;
+}
+
+.tidy5e.sheet.actor .inventory-filters .filter-title {
+    color: rgba(0,0,0,0) !important;
+    width: 0px !important;
+}
+
+.tidy5e.sheet.actor .inventory-currency {
+    margin: 5px 0px 5px 0px !important;
+    padding: 2px 5px 2px 5px !important;
+    border: 2px outset var(--p5e-fg-color-dark);
+    background-color: var(--p5e-fg-color);
+}
+
+.tidy5e.sheet.actor .inventory-currency .currency {
+    margin: 0px;
+}
+
+.tidy5e.sheet.actor .inventory-list .inventory-header,
+.tidy5e.sheet.actor .inventory-list .inventory-header.spellbook-header {
+    margin: 2px 0px !important;
+    padding: 0px !important;
+    border-radius: 0px !important;
+}
+
+.tidy5e.sheet.actor .inventory-list .inventory-header .item-detail i,
+.tidy5e.sheet.actor .inventory-list .inventory-header .spell-detail svg,
+.tidy5e.sheet.actor .inventory-list .inventory-header.spellbook-header .spell-detail i {
+    color: inherit !important;
+}
+
+
+.tidy5e.sheet.actor .spell-component.C,
+.tidy5e.sheet.actor .spell-component.R {
+    width: 12px !important;
+    border: 0px solid transparent !important;
+    border-radius: 8px !important;
+    background-color: var(--p5e-fg-color-light) !important;
+    color: var(--p5e-fg-color-shadow) !important;
+    line-height: 16px !important;
+}
+
+.tidy5e.sheet.actor .inventory-list .inventory-header .item-detail,
+.tidy5e.sheet.actor .inventory-list .inventory-header.spellbook-header .spell-detail,
+.tidy5e.sheet.actor .inventory-list .inventory-header.spellbook-header .spell-detail .slot-max-override i {
+    color: var(--p5e-fg-color-shadow) !important;
+}
+
+.tidy5e-sheet.allow-delete .sheet-body .tidy5e-delete-lock .tidy5e-delete-toggle,
+.tidy5e-sheet .sheet-body .tidy5e-delete-lock .tidy5e-delete-toggle:hover {
+    border-image: url('../../images/border-button-small-select.png') 3 stretch !important;
+    border-radius: 0px !important;
+    background: 
+        url('../../images/scene-button-bg-select.png'),
+        linear-gradient(0deg, #A8E8F8 40%, #78D0E8 40%) !important;
+    background-position: left 70%, center center !important;
+    background-repeat: repeat-x !important;
+}
+
+.tidy5e-sheet .left-notes {
+    margin-right: 5px !important;
+}
+
+.tidy5e-sheet .left-notes, .tidy5e-sheet .right-notes {
+    margin-top: 5px !important;
+}
+
+.tidy5e-sheet .note-entries article {
+    background-color: #FFFBCE !important;
+    border-image: url(../../images/border-interior-small.png) 5 round !important;
+    border-width: 5px !important;
+    border-style: solid !important;
+    border-radius: 10px !important;
+    margin: 0px 0px 5px 0px !important;
+    padding: 2px !important;
+}
