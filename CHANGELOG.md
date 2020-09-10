@@ -1,5 +1,13 @@
 # Changelog
 
+
+## Version 1.3.1
+
+ * Context menus
+ * Scrollbars
+ * Encumbrance bars
+ * Renamed master style includes version to prevent caching between updates
+
 ## Version 1.3.0
 
  * Module Support: Tidy5eSheet (fixes #2)
