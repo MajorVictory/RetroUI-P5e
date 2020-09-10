@@ -21,6 +21,6 @@
   "url": "https://github.com/MajorVictory/RetroUI-P5e",
   "manifest": "https://raw.githubusercontent.com/MajorVictory/RetroUI-P5e/master/module.json",
   "download": "https://github.com/MajorVictory/RetroUI-P5e/releases/download/v1.3.0/RetroUI-P5e.zip",
-  "minimumCoreVersion": "0.6.6",
-  "compatibleCoreVersion": "0.6.6"
+  "compatibleCoreVersion": "0.6.6",
+  "minimumCoreVersion": "0.6.6"
 }
