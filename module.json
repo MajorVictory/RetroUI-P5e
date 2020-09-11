@@ -5,7 +5,7 @@
   "version": "1.4.0",
   "author": "MajorVictory",
   "esmodules": [
-    "p5e-styles-scripts.js"
+    "RetroUI-P5e.js"
   ],
   "styles": [
     "styles/fonts/loadfonts.css"
