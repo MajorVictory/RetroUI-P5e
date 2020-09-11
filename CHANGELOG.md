@@ -1,5 +1,9 @@
 # Changelog
 
+## Upcoming: 1.4
+
+ * Conversion into core module 'RetroUI Core' with style example 'P5e' (stage 1, options and separation)
+
 ## Version 1.3.2
 
  * System Support: Simple Worldbuilding

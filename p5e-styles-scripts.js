@@ -1,75 +1,17 @@
 
-function p5eGetBGData(num) {
-	let slice = '';
-	switch(num) {
-		case "01": slice = '16 round'; break;
-		default: slice = '16 round';
-	}
-	return 'url(\'/modules/RetroUI-P5e/images/chatborders/'+num+'.png\') '+slice;
-}
-
-function p5eCreateColors(hex, name) {
-	let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-
-    let r = parseInt(result[1], 16);
-    let g = parseInt(result[2], 16);
-    let b = parseInt(result[3], 16);
-
-    r /= 255, g /= 255, b /= 255;
-    let max = Math.max(r, g, b), min = Math.min(r, g, b);
-    let h, s, l = (max + min) / 2;
-
-    if(max == min){
-        h = s = 0; // achromatic
-    } else {
-        let d = max - min;
-        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-        switch(max) {
-            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-            case g: h = (b - r) / d + 2; break;
-            case b: h = (r - g) / d + 4; break;
-        }
-        h /= 6;
-    }
-    s = Math.round(s * 100);
-    l = Math.round(l * 100);
-    h = Math.round(h * 360);
-    let a = 1;
-
-    let colors = {
-    	value: 'hsla(' + h + ', ' + s + '%, ' + l + '%, ' + a + ')',
-    	quarter: 'hsla(' + h + ', ' + s + '%, ' + l + '%, 0.25)',
-    	half: 'hsla(' + h + ', ' + s + '%, ' + l + '%, 0.5)',
-    	threequarter: 'hsla(' + h + ', ' + s + '%, ' + l + '%, 0.75)',
-    	shadow: 'hsla(' + h + ', ' + s + '%, 25%, ' + a + ')',
-        dark: 'hsla(' + h + ', ' + s + '%, 25%, 0.5)',
-        light: 'hsla(' + h + ', 100%, 50%, ' + a + ')',
-        darker: 'hsla(' + h + ', ' + s + '%, ' + Math.max(0, (l - 10)) + '%, ' + a + ')',
-        lighter: 'hsla(' + h + ', ' + s + '%, ' + Math.min(100, (l + 10)) + '%, ' + a + ')'
-    }
-
-    for (let colortype in colors) {
-    	let value = colors[colortype];
-    	let propname = '--p5e-'+name+(colortype != 'value' ? '-'+colortype : '');
-    	document.documentElement.style.setProperty(propname, value);
-    	
-    }
-}
-
 Hooks.once('init', () => {
-
-    game.settings.registerMenu("RetroUI-P5e", "RetroUI-P5e", {
-        name: game.i18n.localize("P5ESTYLES.Config"),
-        label: game.i18n.localize("P5ESTYLES.ConfigTitle"),
-        hint: game.i18n.localize("P5ESTYLES.ConfigHint"),
-        icon: "fas fa-paint-brush",
+    game.settings.registerMenu('RetroUI-P5e', 'RetroUI-P5e', {
+        name: game.i18n.localize('P5ESTYLES.Config'),
+        label: game.i18n.localize('P5ESTYLES.ConfigTitle'),
+        hint: game.i18n.localize('P5ESTYLES.ConfigHint'),
+        icon: 'fas fa-paint-brush',
         type: RetroUIP5eStylesConfigDialog,
         restricted: false
     });
 
-    game.settings.register("RetroUI-P5e", "settings", {
-        name: game.i18n.localize("P5ESTYLES.Config"),
-        scope: "client",
+    game.settings.register('RetroUI-P5e', 'settings', {
+        name: game.i18n.localize('P5ESTYLES.Config'),
+        scope: 'client',
         default: RetroUIP5eStylesConfig.getDefaults,
         type: Object,
         config: false,
@@ -81,20 +23,90 @@ Hooks.once('init', () => {
 
 Hooks.once('ready', () => {
     RetroUIP5eStylesConfig.apply(RetroUIP5eStylesConfig.getOptions);
+
+    // adding the style here ensures it is the last entry in the header.
+    // this give our stylesheet top-level priority
+    // which means we can override selectors just by matching them instead of needing '!important'
+    RetroUIUtilities.addStyle('modules/RetroUI-P5e/styles/RetroUI-P5e-1.4.0.css');
+
+    let settings = game.settings.get('RetroUI-P5e', 'settings');
+
+    // enable system-specific sheets if enabled
+    if (settings['SheetOverride_'+game.system.id]) {
+        RetroUIUtilities.addStyle(RetroUIP5eStylesConfig.getSystemSheet(game.system.id));
+    }
 });
 
 Hooks.once('renderSceneControls', () => {
     // controldex button 1 - opens styles config menu
     $('#controls').append($('<p>', { class: 'dexbutton dexbutton1' }).click(function(event) {
-            const menu = game.settings.menus.get("RetroUI-P5e.RetroUI-P5e");
-            if ( !menu ) return ui.notifications.error("No submenu found for the provided key");
+            const menu = game.settings.menus.get('RetroUI-P5e.RetroUI-P5e');
+            if ( !menu ) return ui.notifications.error('No submenu found for the provided key');
             const app = new menu.type();
             return app.render(true);
         })
     );
 });
 
-// main class to hold default configs and current settings
+/* Settings Dialog Class */
+// This class registers a config dialog with your style's specific settings
+class RetroUIP5eStylesConfigDialog extends FormApplication {
+
+    static get defaultOptions() {
+        return mergeObject(super.defaultOptions, {
+            title: game.i18n.localize('P5ESTYLES.Config'),
+            id: 'RetroUI-P5e-config',
+            template: 'modules/RetroUI-P5e/templates/settings.html',
+            width: 510,
+            height: 'auto',
+            closeOnSubmit: true,
+            tabs: [{navSelector: ".tabs", contentSelector: "form", initial: "themecolors"}]
+        });
+    }
+
+    getData(options) {
+        let defaultOptions = RetroUIP5eStylesConfig.getDefaults;
+        let currentdata = game.settings.get('RetroUI-P5e', 'settings');
+        let returndata = this.reset ? defaultOptions : mergeObject(defaultOptions, currentdata);
+        return returndata;
+    }
+
+    activateListeners(html) {
+        super.activateListeners(html);
+
+        // connect color-pickers to validator
+        html.find('.mv-color-value').change(this.updateColor.bind(this));
+        html.find('input, select').change(this.onApply.bind(this));
+        html.find('button[name="reset"]').click(this.onReset.bind(this));
+
+        // fixe for typed colors not always triggering validation on dialog open
+        $('input[type="text"].mv-color-value').change();
+
+        this.reset = false;
+    }
+
+    // updates 'brother' controls of the color-picker to all reflect the same values
+    updateColor(event) {
+        RetroUIUtilities.validateColorPicker(event);
+    }
+
+    onApply(event) {
+        event.preventDefault();
+    }
+
+    onReset() {
+        this.reset = true;
+        this.render();
+    }
+
+    async _updateObject(event, formData) {
+        await game.settings.set('RetroUI-P5e', 'settings', formData);
+        ui.notifications.info(game.i18n.localize("P5ESTYLES.SaveMessage"));
+    }
+}
+
+/* Settings Storage Class */
+// specify default settings, system sheet locations, and logic for applying settings here
 export class RetroUIP5eStylesConfig {
 
 	static get getDefaults() {
@@ -187,7 +199,11 @@ export class RetroUIP5eStylesConfig {
     		ChatBoxWhisperBackgroundColor: '#c0a5da',
     		ChatBoxWhisperBorder: '03',
     		ChatBoxBlindBackgroundColor: '#ff9d9d',
-    		ChatBoxBlindBorder: '11'
+    		ChatBoxBlindBorder: '11',
+            PF2EColorOverride: true,
+            SheetOverride_dnd5e: true,
+            SheetOverride_worldbuilding: true,
+            SheetOverride_pf2e: true
     	};
 	}
 
@@ -195,125 +211,175 @@ export class RetroUIP5eStylesConfig {
 		return mergeObject(RetroUIP5eStylesConfig.getDefaults, game.settings.get("RetroUI-P5e", "settings"));
 	}
 
+    static getSystemSheet(system) {
+        switch (system) {
+            case 'dnd5e': return 'modules/RetroUI-P5e/styles/systems/dnd5e-1.0.0.css';
+            case 'worldbuilding': return 'modules/RetroUI-P5e/styles/systems/worldbuilding-1.0.0.css';
+            case 'pf2e': return 'modules/RetroUI-P5e/styles/systems/pf2e-1.0.0.css';
+            default: return '';
+        }
+    }
+
 	static apply(options) {
+        // creates css variables with slightly different shades
+		RetroUIUtilities.generateColors(options.SheetBackgroundColor, 'p5e', 'bg-color');
+		RetroUIUtilities.generateColors(options.SheetForegroundColor, 'p5e', 'fg-color');
 
-		p5eCreateColors(options.controldexColor, 'bg-controldex-color');
-		p5eCreateColors(options.SheetBackgroundColor, 'bg-color');
-		p5eCreateColors(options.SheetForegroundColor, 'fg-color');
-		p5eCreateColors(options.ChatBoxPublicBackgroundColor, 'chatbg-color-public');
-		p5eCreateColors(options.ChatBoxWhisperBackgroundColor, 'chatbg-color-whisper');
-		p5eCreateColors(options.ChatBoxBlindBackgroundColor, 'chatbg-color-blind');
+        // single css variables
+        RetroUIUtilities.writeColor('--p5e-bg-controldex-color', options.controldexColor);
+        RetroUIUtilities.writeColor('--p5e-chatbg-color-public', options.ChatBoxPublicBackgroundColor);
+        RetroUIUtilities.writeColor('--p5e-chatbg-color-whisper', options.ChatBoxPublicBackgroundColor);
+        RetroUIUtilities.writeColor('--p5e-chatbg-color-blind', options.ChatBoxPublicBackgroundColor);
+		RetroUIUtilities.writeColor('--p5e-chatborder-public', RetroUIP5eStylesConfig.getChatborder(options.ChatBoxPublicBorder));
+		RetroUIUtilities.writeColor('--p5e-chatborder-whisper', RetroUIP5eStylesConfig.getChatborder(options.ChatBoxWhisperBorder));
+		RetroUIUtilities.writeColor('--p5e-chatborder-blind', RetroUIP5eStylesConfig.getChatborder(options.ChatBoxBlindBorder));
 
-		document.documentElement.style.setProperty('--p5e-chatborder-public', p5eGetBGData(options.ChatBoxPublicBorder));
-		document.documentElement.style.setProperty('--p5e-chatborder-whisper', p5eGetBGData(options.ChatBoxWhisperBorder));
-		document.documentElement.style.setProperty('--p5e-chatborder-blind', p5eGetBGData(options.ChatBoxBlindBorder));
+        // pf2e custom sheet color overrides
+        RetroUIUtilities.writeColor('--primary-background', (options.PF2EColorOverride ? 'var(--p5e-fg-color-shadow)' : ''));
+        RetroUIUtilities.writeColor('--secondary-background', (options.PF2EColorOverride ? 'var(--p5e-fg-color)' : ''));
+        RetroUIUtilities.writeColor('--tertiary-background', (options.PF2EColorOverride ? 'var(--p5e-fg-color-shadow)' : ''));
+        RetroUIUtilities.writeColor('--alternate-background', (options.PF2EColorOverride ? 'var(--p5e-fg-color-darker)' : ''));
+
+        // load system specific styles
+        if (options['SheetOverride_'+game.system.id]) {
+            RetroUIUtilities.addStyle(RetroUIP5eStylesConfig.getSystemSheet('dnd5e'));
+        } else {
+            RetroUIUtilities.removeStyle(RetroUIP5eStylesConfig.getSystemSheet('dnd5e'));
+        }
 	}
+
+    // p5e specific, makes a chatborder url from just a two-digit number
+    static getChatborder(num) {
+        let slice = '';
+        switch(num) {
+            case '01': slice = '16 round'; break;
+            default: slice = '16 round';
+        }
+        return 'url(\'/modules/RetroUI-P5e/images/chatborders/'+num+'.png\') '+slice;
+    }
 }
 
-class RetroUIP5eStylesConfigDialog extends FormApplication {
+/* Core Utilities */
+export class RetroUIUtilities {
 
-	static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
-            title: game.i18n.localize("P5ESTYLES.Config"),
-            id: "RetroUI-P5e-config",
-            template: "modules/RetroUI-P5e/templates/settings.html",
-            width: 510,
-            height: 795,
-            closeOnSubmit: true
-        });
+    static removeStyle(path) {
+        let element = $('head link[href="'+path+'"]');
+        if (element) element.remove();
     }
 
-    getData(options) {
-    	let defaultOptions = RetroUIP5eStylesConfig.getDefaults;
-    	let currentdata = game.settings.get('RetroUI-P5e', 'settings');
-    	let returndata = this.reset ? defaultOptions : mergeObject(defaultOptions, currentdata);
-    	return returndata;
+    static addStyle(path) {
+        RetroUIUtilities.removeStyle(path);
+        $('<link href="'+path+'" rel="stylesheet" type="text/css" media="all">').appendTo($('head'));
     }
 
-    activateListeners(html) {
-        super.activateListeners(html);
-        html.find('select[name="controldexColorPreset"],input[name="controldexColor"],input[name="controldexColorSelector"]').change(this.updateColor.bind(this));
-        html.find('select[name="SheetBackgroundColorPreset"],input[name="SheetBackgroundColor"],input[name="SheetBackgroundColorSelector"]').change(this.updateColor.bind(this));
-        html.find('select[name="SheetForegroundColorPreset"],input[name="SheetForegroundColor"],input[name="SheetForegroundColorSelector"]').change(this.updateColor.bind(this));
-        html.find('select[name="ChatBoxPublicBackgroundColorPreset"],input[name="ChatBoxPublicBackgroundColor"],input[name="ChatBoxPublicBackgroundColorSelector"]').change(this.updateColor.bind(this));
-        html.find('select[name="ChatBoxWhisperBackgroundColorPreset"],input[name="ChatBoxWhisperBackgroundColor"],input[name="ChatBoxWhisperBackgroundColorSelector"]').change(this.updateColor.bind(this));
-        html.find('select[name="ChatBoxBlindBackgroundColorPreset"],input[name="ChatBoxBlindBackgroundColor"],input[name="ChatBoxBlindBackgroundColorSelector"]').change(this.updateColor.bind(this));
-        html.find('input,select').change(this.onApply.bind(this));
-        html.find('button[name="reset"]').click(this.onReset.bind(this));
+    // assign to .change() event for color-picker inputs
+    static validateColorPicker(event) {
+        let control = $(event.target);
+        let parentGroup = $(control.parents('.mv-color-input')[0]);
 
-        $('input[name="controldexColor"], input[name="SheetBackgroundColor"], input[name="SheetForegroundColor"], input[name="ChatBoxPublicBackgroundColor"], input[name="ChatBoxWhisperBackgroundColor"], input[name="ChatBoxBlindBackgroundColor"]').change();
+        // validate manual color
+        if (control.attr('type') == 'text') {
 
-        this.reset = false;
+            let colortest = /^#[0-9A-F]{6}$/i.test(control.val());
+
+            if(!colortest) {
+                ui.notifications.warn(game.i18n.localize('P5ESTYLES.InvalidColorFormat'));
+                control.val('#000000');
+            }
+        }
+
+        let colorgroup = parentGroup.find('.mv-color-value');
+
+        for (var el = colorgroup.length - 1; el >= 0; el--) {
+            let brother = $(colorgroup[el]);
+
+            //skip if setting myself
+            if (brother.name == control.prop('name')) continue;
+
+            // no color matches a preset, set to custom
+            if (brother.prop('tagName') == 'SELECT') {
+                brother.val(control.val());
+                if (brother.val() == null) {
+                    brother.val('custom');
+                }
+            } else if (brother.prop('tagName') == 'INPUT' && brother.prop('type') == 'text') {
+                // if custom, set to black at first
+                if (control.val() == 'custom') {
+                    brother.val('#000000');
+                } else {
+                    brother.val(control.val());
+                }
+            } else {
+                brother.val(control.val());
+            }
+        }
     }
 
-    // updates 'borther' controls to all reflect the same values
-    updateColor(event) {
-    	let control = $(event.target);
+    // attempts to create color variants around a given hex value
+    static generateColors(hex, prefix, name) {
+        let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 
-    	// validate manual color
-    	if (['controldexColor','SheetBackgroundColor', 'SheetForegroundColor','ChatBoxPublicBackgroundColor',
-    		'ChatBoxWhisperBackgroundColor', 'ChatBoxBlindBackgroundColor'].includes(control.prop('name'))) {
+        let r = parseInt(result[1], 16);
+        let g = parseInt(result[2], 16);
+        let b = parseInt(result[3], 16);
 
-    		let colortest = /^#[0-9A-F]{6}$/i.test(control.val());
+        r /= 255, g /= 255, b /= 255;
+        let max = Math.max(r, g, b), min = Math.min(r, g, b);
+        let h, s, l = (max + min) / 2;
 
-    		if(!colortest) {
-    			ui.notifications.warn(game.i18n.localize("P5ESTYLES.InvalidColorFormat"));
-    			control.val('#000000');
-    		}
-    	}
+        if(max == min){
+            h = s = 0; // achromatic
+        } else {
+            let d = max - min;
+            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+            switch(max) {
+                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                case g: h = (b - r) / d + 2; break;
+                case b: h = (r - g) / d + 4; break;
+            }
+            h /= 6;
+        }
+        s = Math.round(s * 100);
+        l = Math.round(l * 100);
+        h = Math.round(h * 360);
+        let a = 1;
 
-    	let colorgroups = [
-    		['controldexColorPreset', 'controldexColor', 'controldexColorSelector'],
-    		['SheetBackgroundColorPreset', 'SheetBackgroundColor', 'SheetBackgroundColorSelector'],
-    		['SheetForegroundColorPreset', 'SheetForegroundColor', 'SheetForegroundColorSelector'],
-    		['ChatBoxPublicBackgroundColorPreset', 'ChatBoxPublicBackgroundColor', 'ChatBoxPublicBackgroundColorSelector'],
-    		['ChatBoxWhisperBackgroundColorPreset', 'ChatBoxWhisperBackgroundColor', 'ChatBoxWhisperBackgroundColorSelector'],
-    		['ChatBoxBlindBackgroundColorPreset', 'ChatBoxBlindBackgroundColor', 'ChatBoxBlindBackgroundColorSelector']
-    	];
+        let colors = {
+            value: 'hsla(' + h + ', ' + s + '%, ' + l + '%, ' + a + ')',
+            quarter: 'hsla(' + h + ', ' + s + '%, ' + l + '%, 0.25)',
+            half: 'hsla(' + h + ', ' + s + '%, ' + l + '%, 0.5)',
+            threequarter: 'hsla(' + h + ', ' + s + '%, ' + l + '%, 0.75)',
+            shadow: 'hsla(' + h + ', ' + s + '%, 25%, ' + a + ')',
+            dark: 'hsla(' + h + ', ' + s + '%, 25%, 0.5)',
+            light: 'hsla(' + h + ', 100%, 50%, ' + a + ')',
+            darker: 'hsla(' + h + ', ' + s + '%, ' + Math.max(0, (l - 10)) + '%, ' + a + ')',
+            lighter: 'hsla(' + h + ', ' + s + '%, ' + Math.min(100, (l + 10)) + '%, ' + a + ')'
+        }
 
-    	for (var group = colorgroups.length - 1; group >= 0; group--) {
-    		let colorgroup = colorgroups[group];
-
-    		if (colorgroup.includes(control.prop('name'))) {
-
-    			for (var el = colorgroup.length - 1; el >= 0; el--) {
-    				let brother = $('[name="'+colorgroup[el]+'"]');
-
-    				//skip if setting myself
-    				if (brother.name == control.prop('name')) continue;
-
-					// no color matches a preset, set to custom
-    				if (brother.prop('tagName') == 'SELECT') {
-    					brother.val(control.val());
-    					if (brother.val() == null) {
-	    					brother.val('custom');
-	    				}
-    				} else if (brother.prop('tagName') == 'INPUT' && brother.prop('type') == 'text') {
-						// if custom, set to black at first
-    					if (control.val() == 'custom') {
-	    					brother.val('#000000');
-	    				} else {
-	    					brother.val(control.val());
-	    				}
-    				} else {
-						brother.val(control.val());
-					}
-    			}
-    		}
-    	}
+        for (let colortype in colors) {
+            let value = colors[colortype];
+            let propname = '--'+prefix+'-'+name+(colortype != 'value' ? '-'+colortype : '');
+            RetroUIUtilities.writeColor(propname, value);
+        }
     }
 
-    onApply(event) {
-    	event.preventDefault();
-    }
+    static writeColor(name, value) {
 
-    onReset() {
-        this.reset = true;
-        this.render();
-    }
+        if (Array.isArray(name)) {
+            for (let i = 0; i < name.length; i++) {
+                if (Array.isArray(value)) {
+                    RetroUIUtilities.writeColor(name[i], value[i]);
+                } else {
+                    RetroUIUtilities.writeColor(name[i], value);
+                }
+            }
+            return;
+        }
 
-    async _updateObject(event, formData) {
-        await game.settings.set('RetroUI-P5e', 'settings', formData);
-        ui.notifications.info(game.i18n.localize("P5ESTYLES.SaveMessage"));
+        if (value != null && value != '') {
+            document.documentElement.style.setProperty(name, value);
+        } else {
+            document.documentElement.style.removeProperty(name);
+        }
     }
 }

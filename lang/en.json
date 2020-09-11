@@ -1,10 +1,13 @@
 {
-    "P5ESTYLES.Config": "UI Style Options",
-    "P5ESTYLES.ConfigTitle": "UI Style Options",
+    "P5ESTYLES.Config": "Style Configuration",
+    "P5ESTYLES.ConfigTitle": "RetroUI - P5e Style Options",
     "P5ESTYLES.ConfigHint": "Customize theme colors and settings.",
-    "P5ESTYLES.Dialog": "",
 
     "P5ESTYLES.InvalidColorFormat": "Invalid Color Format! Must be in hexadecimal format '#rrggbb'",
+
+    "P5ESTYLES.ThemeColorsTab": "Theme Colors",
+    "P5ESTYLES.ChatColorsTab": "Chat Colors",
+    "P5ESTYLES.SystemsSettingsTab": "Compatability",
 
     "P5ESTYLES.ControldexColor": "Controldex Color",
     "P5ESTYLES.SheetBackgroundColor": "Sheet Background Color",
@@ -23,6 +26,18 @@
     "P5ESTYLES.ChatBorderPublic": "Chat Border - Public",
     "P5ESTYLES.ChatBorderWhisper": "Chat Border - Whisper",
     "P5ESTYLES.ChatBorderBlind": "Chat Border - Blind",
+
+    "P5ESTYLES.SystemNameDND5e": "DnD 5e",
+    "P5ESTYLES.SystemNameWorldBuilding": "Simple World-Building",
+    "P5ESTYLES.SystemNamePF2e": "Pathfinder (2e)",
+
+    "P5ESTYLES.SheetOverride": "Override Actor Sheets",
+    "P5ESTYLES.SheetOverrideNote": "Overrides sheet styles for Actor type entities",
+
+    "P5ESTYLES.SheetOverrideNotednd5e": "Overrides sheet styles for Character, NPC, and Vehicle type entities",
+
+    "P5ESTYLES.PF2EColorOverride": "Override Custom Sheet Colors",
+    "P5ESTYLES.PF2EColorOverrideNote": "The PF2e system allows custom sheet colors. When enabled, they are overridden with theme appropriate colors",
 
     "P5ESTYLES.Reset": "Reset",
     "P5ESTYLES.Save": "Save",
