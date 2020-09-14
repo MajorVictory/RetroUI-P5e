@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.4.0
+
+ * Rewritten core in preparation for conversion to Whetstone style.
+ * Added new logo
+ * Module Support: Simple Dice Roller (fixes #6)
+
 ## Version 1.3.2
 
  * System Support: Simple Worldbuilding
