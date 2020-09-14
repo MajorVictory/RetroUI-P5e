@@ -213,9 +213,9 @@ export class RetroUIP5eStylesConfig {
 
     static getSystemSheet(system) {
         switch (system) {
-            case 'dnd5e': return 'modules/RetroUI-P5e/styles/systems/dnd5e-1.0.0.css';
-            case 'worldbuilding': return 'modules/RetroUI-P5e/styles/systems/worldbuilding-1.0.0.css';
-            case 'pf2e': return 'modules/RetroUI-P5e/styles/systems/pf2e-1.0.0.css';
+            case 'dnd5e': return 'modules/RetroUI-P5e/styles/systems/dnd5e-0.96.css';
+            case 'worldbuilding': return 'modules/RetroUI-P5e/styles/systems/worldbuilding.css';
+            case 'pf2e': return 'modules/RetroUI-P5e/styles/systems/pf2e.css';
             default: return '';
         }
     }

@@ -1,8 +1,10 @@
 # Changelog
 
-## Upcoming: 1.4
+## Version 1.4.0
 
- * Conversion into core module 'RetroUI Core' with style example 'P5e' (stage 1, options and separation)
+ * Rewritten core in preparation for conversion to Whetstone style.
+ * Added new logo
+ * Module Support: Simple Dice Roller (fixes #6)
 
 ## Version 1.3.2
 

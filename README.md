@@ -6,6 +6,9 @@
 
 <br />
 <p align="center">
+  <a href="https://github.com/MajorVictory/RetroUI-P5e">
+    <img src="images/p5e-thumb.png" alt="Logo" width="128" height="128">
+  </a>
   <h3 align="center">Retro UI (P5e) - UI overhaul module for FoundryVtt</h3>
   <p align="center">
     A module for FoundryVtt that overhauls the UI with a customizable style themed after early handheld console games.
@@ -36,6 +39,7 @@
  * itemcollection
  * The Furnace
  * Monsterblock
+ * Simple Dice Roller
  * [Request More](https://github.com/MajorVictory/RetroUI-P5e/issues)
 
 **[Known Issues]**
@@ -66,6 +70,10 @@ Monsterblock
 Tidy5eSheet
 
 ![](readme/tidy5esheet-9-9-2020.png)
+
+Simple Dice Roller
+
+![](readme/SimpleDiceRoller-9-14-2020.png)
 
 ### Customizable Colors
 

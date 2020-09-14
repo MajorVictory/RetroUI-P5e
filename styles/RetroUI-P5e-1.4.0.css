@@ -1484,3 +1484,74 @@ a:hover,
     background-color: #F8F8F8;
 }
 /* Furnace Compat */
+
+
+/* Simple Dice Roller Compat */
+.simple-dice-roller-popup {
+    line-height: 28px;
+    background: none;
+    box-shadow: none;
+    border: none;
+}
+
+.simple-dice-roller-popup .sdr-col1 {
+    width: 90px;
+    background-image: url('../images/bg-sdr-col1.png');
+    background-size: 100% 100%;
+    text-align: center;
+}
+.simple-dice-roller-popup .sdr-col1:hover {
+    background-image: url('../images/bg-sdr-col1-select.png');
+}
+
+.simple-dice-roller-popup ul {
+    border-bottom: none;
+    padding: 2px;
+}
+
+.simple-dice-roller-popup li {
+    width: 38px;
+    height: 38px;
+    margin-right: 4px;
+    border-right: none;
+    background-image: url('../images/controls-main-button-bg.png');
+    background-size: 100% 100%;
+}
+
+.simple-dice-roller-popup li:hover {
+    color: #FFF;
+    border: none;
+    border-bottom: none;
+    box-shadow: none;
+    background-image: url('../images/controls-main-button-bg-select.png');
+}
+
+.scene-control.sdr-scene-control.active .control-tools {
+    left: 70px !important;
+    top: 20px !important;
+    min-width: 68px;
+    max-width: inherit !important;
+    margin: 0px !important;
+    image-rendering: pixelated !important;
+    background-image: none !important;
+    border-radius: 0px !important;
+    padding: 10px !important;
+    background-color: initial !important;
+    -webkit-mask-image: none !important; 
+}
+
+.scene-control.sdr-scene-control.active .control-tools::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 232px;
+    height: 282px;
+    border-image: url('../images/border-sdr.png') 22 11 11 40 fill round !important;
+    border-width: 22px 11px 11px 40px !important;
+    border-style: solid !important;
+    z-index: -1;
+    background-color: var(--p5e-bg-controldex-color); 
+}
+/* Simple Dice Roller Compat */
