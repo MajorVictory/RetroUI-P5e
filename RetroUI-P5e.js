@@ -287,7 +287,7 @@ Hooks.on('renderSceneControls', () => {
     $('#controls').append($('<p>', { class: 'dexbutton dexbutton1' }).click(function(event) {
             const menu = game.Whetstone.settings.menus.get('RetroUI-P5e.RetroUI-P5e');
             if ( !menu ) return ui.notifications.error('No submenu found for the provided key');
-            const app = new menu.type();
+            const app = new menu.type({theme:'RetroUI-P5e'});
             return app.render(true);
         })
     );
