@@ -1,20 +1,14 @@
 :root {
-    --border-hotbar-01: url('../images/border-hotbar-01.png') 12 round;
-    --border-hotbar-02: url('../images/border-hotbar-02.png') 12 round;
-    --border-hotbar-03: url('../images/border-hotbar-03.png') 12 round;
-    --border-hotbar-04: url('../images/border-hotbar-04.png') 12 round;
-    --border-hotbar-05: url('../images/border-hotbar-05.png') 12 round;
-
-    --p5e-bg-controldex-color: #FF0000FF;
-    --p5e-bg-color: #FFFBCE;
+    --p5e-bg-controldex-color: #f20c32;
+    --p5e-bg-color: #fffbce;
     --p5e-fg-color: #58d0d0;
 
     --p5e-chatborder-public: url('../images/chatborders/21.png') 16 round;
-    --p5e-chatbg-color-public: #f8f8f8;
-    --p5e-chatborder-whisper: url('../images/chatborders/01.png') 16 round;
-    --p5e-chatbg-color-whisper: #b088d0;
-    --p5e-chatborder-blind: url('../images/chatborders/16.png') 16 round;
-    --p5e-chatbg-color-blind: #b088d0;
+    --p5e-chatbg-color-public: #58d0d0;
+    --p5e-chatborder-whisper: url('../images/chatborders/03.png') 16 round;
+    --p5e-chatbg-color-whisper: #c0a5da;
+    --p5e-chatborder-blind: url('../images/chatborders/11.png') 16 round;
+    --p5e-chatbg-color-blind: #ff9d9d;
 }
 
 /* ******************************************* */
@@ -998,7 +992,7 @@ footer.compendium-footer > span:nth-child(2) {
 #hotbar #action-bar #macro-list {
     box-sizing: content-box;
     background-image: url('../images/hotbar-bg-01.png');
-    border-image: var(--border-hotbar-01);
+    border-image: url('../images/border-hotbar-01.png') 12 round;
     border-image-outset: 0px;
     border-radius: 10px;
     border-width: 12px;
