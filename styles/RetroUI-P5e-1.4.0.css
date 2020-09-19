@@ -1,14 +1,29 @@
 :root {
+    --p5e-bg-color: hsla(15,40%,89%,1);
+    --p5e-bg-color-quarter: hsla(15,40%,89%,0.25);
+    --p5e-bg-color-half: hsla(15,40%,89%,0.5);
+    --p5e-bg-color-threequarter: hsla(15,40%,89%,0.75);
+    --p5e-bg-color-shadow: hsla(15,40%,25%,1);
+    --p5e-bg-color-dark: hsla(15,40%,25%,0.5);
+    --p5e-bg-color-light: hsla(15,100%,50%,1);
+    --p5e-bg-color-darker: hsla(15,40%,79%,1);
+    --p5e-bg-color-lighter: hsla(15,40%,99%,1);
+    --p5e-fg-color: hsla(180,58%,82%,1);
+    --p5e-fg-color-quarter: hsla(180,58%,82%,0.25);
+    --p5e-fg-color-half: hsla(180,58%,82%,0.5);
+    --p5e-fg-color-threequarter: hsla(180,58%,82%,0.75);
+    --p5e-fg-color-shadow: hsla(180,58%,25%,1);
+    --p5e-fg-color-dark: hsla(180,58%,25%,0.5);
+    --p5e-fg-color-light: hsla(180,100%,50%,1);
+    --p5e-fg-color-darker: hsla(180,58%,72%,1);
+    --p5e-fg-color-lighter: hsla(180,58%,92%,1);
     --p5e-bg-controldex-color: #f20c32;
-    --p5e-bg-color: #fffbce;
-    --p5e-fg-color: #58d0d0;
-
-    --p5e-chatborder-public: url('../images/chatborders/21.png') 16 round;
     --p5e-chatbg-color-public: #58d0d0;
-    --p5e-chatborder-whisper: url('../images/chatborders/03.png') 16 round;
+    --p5e-chatborder-public: url(../images/chatborders/21.png) 16 round;
     --p5e-chatbg-color-whisper: #c0a5da;
-    --p5e-chatborder-blind: url('../images/chatborders/11.png') 16 round;
+    --p5e-chatborder-whisper: url(../images/chatborders/03.png) 16 round;
     --p5e-chatbg-color-blind: #ff9d9d;
+    --p5e-chatborder-blind: url(../images/chatborders/11.png) 16 round;
 }
 
 /* ******************************************* */

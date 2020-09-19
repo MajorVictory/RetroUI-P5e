@@ -1,6 +1,5 @@
 
 Hooks.once('WhetstoneReady', () => {
-    console.log('Whetstone | Ready');
 
     // register a default menu with Whetstone for configuration
     game.Whetstone.settings.registerMenu('RetroUI-P5e', 'RetroUI-P5e', {
@@ -20,7 +19,7 @@ Hooks.once('WhetstoneReady', () => {
 
         // author/authors will be formattd to fit this format
         authors: [
-            { name: 'MajorVictory', contact: 'https://github.com/MajorVictory', url: 'https://github.com/MajorVictory' }
+            { name: 'MajorVictory', contact: 'Github', url: 'https://github.com/MajorVictory' }
         ],
 
         // will be merged with 'styles' entry in module.json
